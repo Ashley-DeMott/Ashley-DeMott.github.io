@@ -1,1 +1,0 @@
-# Ashley-DeMott.github.io
