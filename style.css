@@ -1,7 +1,85 @@
+/* ToDo: Move variables to SCSS file */
+:root {	
+    /* Fonts */
+    --mainFont: "Roboto";
+    --headerFont: "Great Vibes";
+
+	/* Colors */
+    --primaryColor: white;
+    --secondaryColor: black;
+    --accentColor: rgb(110, 45, 175);
+    --accentColor2: rgb(215, 215, 215);
+	
+	/* Add variables for consistent margins */
+}
+
 * {
-	color: black;
+	color: var(--secondaryColor);
 }
 
 h1, h2 {
-	color: purple;
+	color: var(--accentColor);
+}
+
+.WDD331 {
+	background-color: lightgrey;
+	padding: 10px;
+	margin: 10px 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: white;
+}
+
+.WDD331 a:hover {
+	color: var(--accentColor);
+}
+
+header, footer {
+	color: var(--accentColor2);	
+	background-color: var(--accentColor);
+	padding: 10px;
+		
+}
+
+header * {
+	color: var(--accentColor2);	
+	padding: 5px;
+}
+
+header h1 {
+	margin-bottom: -10px;
+}
+
+header {
+	margin-bottom: -10px;	
+}
+
+footer {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: center;
+	margin-top: -10px;
+}
+
+footer a {
+	color: var(--accentColor2);
+}
+
+/* ToDo: Add responsiveness */
+
+/* Media Queries */
+/* When the screen is a 'medium' size, 768px to 1024px*/
+@media (min-width: 768px) {
+
+}
+
+/* When the screen is a 'large' size, 1024px or larger*/
+@media (min-width: 1024px) {
+
 }

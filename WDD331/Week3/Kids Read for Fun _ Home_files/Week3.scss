@@ -1,0 +1,154 @@
+/*
+Ashley DeMott
+WDD 331R-A2
+Week 3 - Preprocessors
+Fall 2023
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+
+// Declare Sass Variables
+$main-font-color: #333;
+$border-variables: 1px solid #d0d0d0;
+
+// Reset the borders, and add one if given a side
+@mixin set-borders($side: none) {
+	border: none;  // Reset borders
+	
+	// If there is a specified side,
+	@if $side == "bottom" {
+		border-bottom: $border-variables;
+	}
+	@else if $side == "right" {
+		border-right: $border-variables;
+	}
+}
+
+
+/* Headlines */
+h1, h2 {
+	font-family: lora, sans-serif;
+}
+
+/* Body */
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: $main-font-color;
+}
+
+/* Center the figure's image */
+figure {
+	display: flex;
+	justify-content: center;
+}
+
+
+/* Links */
+a:link, a:visited {
+	color: #666;
+	text-decoration: none; }
+
+a:hover {
+color: #00ddff; }
+
+a:active {
+color: #DEB887; }
+
+
+/* Put bottom borders on each of these sections */
+nav, h1, .post-date, article{
+	@include set-borders("bottom");
+}
+
+/* Asjust the size and spacing of the main headline */
+h1 {
+	font-size: 42px;
+	text-align: center;
+	padding-bottom: 30px;
+	margin-bottom: 0px;
+	
+	/* Set the main headline's link's color for all link states */
+	a[href] {
+		color: $main-font-color;
+	}
+}
+
+/* Adjust the navigation's unordered list */
+nav ul{
+	list-style-type: none;
+	color: $main-font-color;
+	font-family: Lora, sans-serif;
+	text-transform: uppercase;
+	
+	padding: 0px;
+	margin: 0px 0px;
+	
+	/* Center and add padding to all list items*/
+	li {
+	text-align: center;
+	padding: 5px;
+	}
+}
+
+
+/* Add padding to all of the secondary headers inside articles */
+article h2 {
+	padding: 5px;
+}
+
+/* Capitalize the post date's text and right align */
+.post-date{
+	text-align: right;
+	text-transform: uppercase;
+}
+
+/* Add padding to the content */
+.post-content {
+	padding: 10px;
+}
+
+/* Larger screen size */
+@media (min-width: 600px) {
+	/* Add a gap between the nav and main (right border line doesn't connect) */
+	main {
+		margin-top: 10px;
+	}
+	
+	/* Display the articles in a grid and reset borders */
+	article {
+		display: grid;		
+		grid-template-columns: 1fr 3fr;
+		@include set-borders();
+		
+		/* Put a line between each article's content */
+		.post-content {
+			@include set-borders("bottom");
+		}
+	}
+	
+	/* Display the nav's unordered list horizontally on the right side of the page */
+	nav ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: right;
+		
+		/* Give extra padding to the list items*/
+		li {
+			padding: 10px;
+		}	
+	}
+	
+	/* But for the last article, have no line */
+	article:last-child .post-content{
+		@include set-borders();
+	}
+	
+	/* Adjust the spacing of the post date to line up with content header */
+	.post-date {
+		padding: 15px; /* General padding */
+		padding-top: 35px; /* Line up vertically */
+		margin: 0px;		
+		
+		@include set-borders("right");		
+	}	
+}

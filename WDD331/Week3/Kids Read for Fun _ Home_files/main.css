@@ -1,0 +1,130 @@
+/*
+Ashley DeMott
+WDD 331R-A2
+Week 3 - Preprocessors
+Fall 2023
+*/
+@import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
+/* Reset the borders, and add one if given a side */
+/* Headlines */
+h1, h2 {
+  font-family: lora, sans-serif;
+}
+
+/* Body */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Center the figure's image */
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+/* Links */
+a:link, a:visited {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00ddff;
+}
+
+a:active {
+  color: #DEB887;
+}
+
+/* Put bottom borders on each of these sections */
+nav, h1, .post-date, article {
+  border: none;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+/* Asjust the size and spacing of the main headline */
+h1 {
+  font-size: 42px;
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 0px;
+  /* Set the main headline's link's color for all link states */
+}
+h1 a[href] {
+  color: #333;
+}
+
+/* Adjust the navigation's unordered list */
+nav ul {
+  list-style-type: none;
+  color: #333;
+  font-family: Lora, sans-serif;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0px 0px;
+  /* Center and add padding to all list items*/
+}
+nav ul li {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Add padding to all of the secondary headers inside articles */
+article h2 {
+  padding: 5px;
+}
+
+/* Capitalize the post date's text and right align */
+.post-date {
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/* Add padding to the content */
+.post-content {
+  padding: 10px;
+}
+
+/* Larger screen size */
+@media (min-width: 600px) {
+  /* Add a gap between the nav and main (right border line doesn't connect) */
+  main {
+    margin-top: 10px;
+  }
+  /* Display the articles in a grid and reset borders */
+  article {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border: none;
+    /* Put a line between each article's content */
+  }
+  article .post-content {
+    border: none;
+    border-bottom: 1px solid #d0d0d0;
+  }
+  /* Display the nav's unordered list horizontally on the right side of the page */
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    /* Give extra padding to the list items*/
+  }
+  nav ul li {
+    padding: 10px;
+  }
+  /* But for the last article, have no line */
+  article:last-child .post-content {
+    border: none;
+  }
+  /* Adjust the spacing of the post date to line up with content header */
+  .post-date {
+    padding: 15px; /* General padding */
+    padding-top: 35px; /* Line up vertically */
+    margin: 0px;
+    border: none;
+    border-right: 1px solid #d0d0d0;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
