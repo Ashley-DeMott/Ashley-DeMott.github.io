@@ -1,0 +1,867 @@
+:root {
+	/* Triangle angles */
+	--angle: 120deg;
+	--angleNeg: -120deg;
+
+	/* How wide the triangle is*/
+	--cutoff: 90%;
+
+	--bgWidth: 80px;
+	--bgHeight: 38px;
+
+	/* Triangle color and background color*/
+	/* Change to more contrasting colors to see pattern better */
+	--lightRGB: rgb(3, 51, 45);
+	--darkRGB: rgb(3, 46, 40);
+	}
+
+
+section {
+	display: flex;
+	flex-direciton: row;
+	flex-wrap: wrap;
+}
+
+div {
+	display: block;
+	width: 250px;
+	height: 250px;
+}
+
+
+#black-white-v { background: linear-gradient(black, white); /* top to bottom - */ }
+#black-white-h { background: linear-gradient(to right, black, white); /* left to right | */ }
+#black-white-d { background: linear-gradient(45deg, black, white); /* 45 deg / */ }
+#black-purple-white { background: linear-gradient(to right, black 25%, purple, white 90%); /* Percents where the color shows up*/}
+
+#repeat-linear-fail { background: repeating-linear-gradient(45deg, black 5px, purple 25px, white 30px, purple 35px, black); /* exact pixels, don't do well with repeating*/} 
+#repeat-linear { background: repeating-linear-gradient(45deg, black 5%, purple 25%, white 30%, purple 35%, black 40%); /* use percents */} 
+
+#offset-linear { background: linear-gradient(115deg, red 30%, black) 25px 25px; }
+#offset-repeat-linear { background: linear-gradient(115deg, red 30%, black) 0px 0px, linear-gradient(blue 30%, black) 0px 0px;
+background-size: 100px 25px;}
+
+
+#squares { background: linear-gradient(115deg, red 30%, black) 25px 25px;
+background-size: 25px 25px;}
+#offset-wacky { background: linear-gradient(115deg, red 30%, black) 25px 25px;
+background-size: 25px 100%;}
+/*{ background: repeating-linear-gradient(115deg, red 30%, black) 25px 25px; }*/
+
+#web-dev-mix {
+	background: linear-gradient(-45deg, blue -30%, transparent 80%), linear-gradient(45deg, darkred 20%, crimson, darkorange 60%, gold, bisque);
+}
+
+#gradient-mix-1 { background: 
+/*linear-gradient(45deg, black 30%, blue) 0 0,*/ linear-gradient(115deg, red 30%, black) 5px 5px;}
+
+#gradient-mix-2 { background:
+linear-gradient(-45deg, orange -30%, transparent 80%), 
+linear-gradient(45deg, darkred 20%, crimson, darkorange 60%, gold, bisque);
+}
+
+#gradient-mix-3 { background:
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 25px 25px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5)  -30%, transparent 80%) 50px 50px,
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 75px 75px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5) -30%, transparent 80%) 100px 100px,
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 125px 125px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5) -30%, transparent 80%) 150px 150px,
+linear-gradient(45deg, red 20%, orange, yellow 60%, green, blue);
+/*background-size: 100px 100px;*/
+}
+
+#gradient-mix-6 { background:
+repeating-linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 25px 25px,
+repeating-linear-gradient(-45deg, rgba(0, 0, 0, .5)  -30%, transparent 80%) 50px 50px,
+linear-gradient(45deg, red 20%, orange, yellow 60%, green, blue);
+/*background-size: 100px 100px;*/
+}
+
+#gradient-mix-7 { background:
+repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) -30%, transparent 80%) 25px 25px,
+repeating-linear-gradient(-45deg, rgba(0, 0, 0, .2)  -30%, transparent 80%) 50px 50px,
+repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) -30%, transparent 80%) 75px 75px,
+repeating-linear-gradient(-45deg, rgba(0, 0, 0, .2) -30%, transparent 80%) 100px 100px,
+repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) -30%, transparent 80%) 125px 125px,
+repeating-linear-gradient(-45deg, rgba(0, 0, 0, .2) -30%, transparent 80%) 150px 150px,
+repeating-linear-gradient(-45deg, rgba(255, 255, 255, .2) -30%, transparent 80%) 175px 175px,
+repeating-linear-gradient(-45deg, rgba(0, 0, 0, .2) -30%, transparent 80%) 200px 200px,
+linear-gradient(45deg, red 20%, orange, yellow 60%, green, blue);
+}
+
+#gradient-mix-4 { 
+background: 
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 25px 25px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5)  -30%, transparent 80%) 50px 50px;
+background-color: blue;
+background-size: 50px 50px;
+}
+
+#gradient-mix-5 { 
+background: 
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 25px 25px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5)  -30%, transparent 80%) 50px 50px,
+linear-gradient(-45deg, rgba(255, 255, 255, .5) -30%, transparent 80%) 75px 75px,
+linear-gradient(-45deg, rgba(0, 0, 0, .5) -30%, transparent 80%) 100px 100px;
+background-color: red;
+background-size: 100px 100px;
+}
+
+
+ /* dark #032e28 rgb(3, 46, 40, .8) */
+/* light #03332d rgb(3, 51, 45, .8) */
+
+#half-rombes2 {
+	background: #36c;
+background:
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,
+#032e28;
+background-size: 15px 30px;
+}
+
+#half-rombes3 {
+	background: #36c;
+background:
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,
+#032e28;
+/*background-size: 15px 30px;*/
+}
+
+#half-rombes4 {
+	width: 150px;
+	height: 300px;
+	margin: 25px;
+background:
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 0 0,
+/*
+linear-gradient(115deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,
+linear-gradient(245deg, transparent 75%, rgb(3, 51, 45, .8) 75%) 7px -15px,*/
+
+black;
+
+background-size: 15px 30px;
+}
+
+#half-rombes5 {
+	width: 400px;
+	height: 200px;
+background:
+
+
+linear-gradient(115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 0 0,
+linear-gradient(-115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 0 0,
+linear-gradient(115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 50px 100px,
+linear-gradient(-115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 50px 100px,
+linear-gradient(115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 100px 0px,
+linear-gradient(-115deg, transparent 90%, rgb(3, 51, 45, .8) 90%) 100px 0px,
+/*linear-gradient(245deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+
+linear-gradient(-115deg, transparent 50%, orange 50%) 0 0,
+linear-gradient(-245deg, transparent 50%, orange 50%) 0 0,*/
+black;
+background-size: 400px 200px;
+}
+
+#half-rombes7 {
+background:
+
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 5px 10px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 5px 10px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 0px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 25px 10px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 25px 10px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 30px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 30px 0px,
+rgb(3, 46, 40);
+background-size: 40px 20px;
+}
+
+
+#half-rombes8 {
+background:
+
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 60px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 60px 0px,
+rgb(3, 46, 40);
+background-size: 80px 40px;
+}
+
+#half-rombes6 {
+	width: 400px;
+	height: 200px;
+	margin: 100px;
+background:
+
+linear-gradient(var(--angle), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 0 0,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 0 0,
+linear-gradient(var(--angle), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 50px 113px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 50px 113px,
+linear-gradient(var(--angle), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 100px 0px,
+linear-gradient(var(--angleNeg), transparent var(--cutoff), rgb(3, 51, 45, .8) var(--cutoff)) 100px 0px,
+/*linear-gradient(245deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+
+linear-gradient(-115deg, transparent 50%, orange 50%) 0 0,
+linear-gradient(-245deg, transparent 50%, orange 50%) 0 0,*/
+black;
+background-size: 400px 200px;
+}
+
+#mountains {
+background:
+linear-gradient(115deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+linear-gradient(245deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+black;
+
+background-size: 15px 30px;
+}
+
+#mountains2 {
+	background:
+linear-gradient(115deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+linear-gradient(245deg, transparent 50%, rgb(3, 51, 45, .8) 50%) 0 0,
+
+linear-gradient(-115deg, transparent 50%, orange 50%) 0 0,
+linear-gradient(-245deg, transparent 50%, orange 50%) 0 0,
+black;
+background-size: 15px 30px;
+}
+
+#zelda-triforce {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 2px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 2px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 5px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 5px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 18px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 18px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 51px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 51px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 28px 36px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 28px 36px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 36px 51px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 36px 51px,
+		var(--darkRGB);
+	background-size: 38px 60px;	
+}
+
+#zelda-triforce-3 {
+	background-color: #032e28;/* flat color*/
+	background:
+linear-gradient(115deg, transparent 75%, rgb(3,51,45, .8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, red 75%) 0 0, 
+linear-gradient(115deg, transparent 75%, rgb(3,51,45, .8) 75%) 7px -15px, 
+linear-gradient(245deg, transparent 75%, rgb(3,51,45, .8) 75%) 7px -15px,
+ #032e28;
+background-size: /*15px 30px;*/30px 60px;/**/
+}
+
+#zelda-triforce-2 {
+	background-color: #032e28;/* flat color*/
+	background:
+linear-gradient(115deg, transparent 75%, rgb(3,46,40, .8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgb(3,51,45, .8) 75%) 0 0, 
+linear-gradient(115deg, transparent 75%, rgb(3,46,40, .8) 75%) 7px -15px, 
+linear-gradient(245deg, transparent 75%, rgb(3,51,45, .8) 75%) 7px -15px,
+#36c;
+background-size: 15px 30px;/*30px 60px;*/
+}
+
+#zelda-triforce-1 {
+	background-color: #032e28;/* flat color*/
+	
+	background:
+	linear-gradient(115deg, #03332d 75%, #032e28 75%) 0 0,
+linear-gradient(245deg, #032e28 75%, #03332d 75%) 0 0, 
+linear-gradient(115deg, #03332d 75%, #032e28 75%) 7px -15px, 
+linear-gradient(245deg, #032e28 75%, #03332d 75%) 7px -15px,
+#36c;
+background-size: 15px 30px;/*30px 60px;*/
+}
+
+
+#conic-1 {
+	background:
+		conic-gradient(red, orange, yellow, green, blue, purple);
+border-radius: 150px;	
+}
+
+#conic-2 {
+	background:
+		conic-gradient(red 0%, red 25%, transparent 25%);
+border-radius: 150px;	/* Can be circle or square, but in upper right*/
+}
+
+
+#conic-2 {
+	background:
+		conic-gradient(red 0%, red 25%, transparent 25%),
+		conic-gradient(transparent 60%, blue 60%, blue 65%, transparent 65%);
+border-radius: 150px;	/* Can be circle or square, but in upper right*/
+border-bottom-left-radius: 0px 0px;
+}
+
+#conic-3 {
+	background:
+		conic-gradient(transparent 10%, blue 10%, blue 15%, transparent 15%),
+		conic-gradient(transparent 35%, blue 35%, blue 40%, transparent 40%),
+		conic-gradient(transparent 60%, blue 60%, blue 65%, transparent 65%),
+		conic-gradient(transparent 85%, blue 85%, blue 90%, transparent 90%), midnightblue;
+}
+
+#conic-4 {
+	background:
+		conic-gradient(transparent 10%, blue 10%, blue 15%, transparent 15%),
+		conic-gradient(transparent 35%, red 35%, blue 40%, transparent 40%),
+		conic-gradient(transparent 60%, blue 60%, blue 65%, transparent 65%),
+		conic-gradient(transparent 85%, red 85%, blue 90%, transparent 90%);
+		background-size: 40px 40px;
+}
+
+#conic-5 {
+	background:
+		conic-gradient(transparent 10%, blue 10%, blue 15%, transparent 15%),
+		conic-gradient(transparent 35%, blue 35%, blue 40%, transparent 40%), 20px 20px,
+		conic-gradient(transparent 60%, blue 60%, blue 65%, transparent 65%),
+		conic-gradient(transparent 85%, blue 85%, blue 90%, transparent 90%);
+		background-size: 50px 50px;
+}
+
+/* Checkerboard */
+#conic-6 {
+  background: conic-gradient(
+      midnightblue 0.25turn,
+      #000 0.25turn 0.5turn,
+      #fff 0.5turn 0.75turn,
+      #000 0.75turn
+    ) top left / 25% 25% repeat;
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+#conic-7 {
+  background: conic-gradient(
+      #fff 0.25turn,
+      #000 0.25turn 0.5turn
+    ) top left / 25% 25% repeat;
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+#conic-8 {
+  background: conic-gradient(
+      green 0.3turn,
+	  
+      blue 0.8turn 0.8turn/*,
+      red 0.9turn 0.75turn,
+      #000 0.75turn*/
+    ) top left / 25% 25% repeat;
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+#conic-9 {
+  background: conic-gradient(
+      green 0.1turn,
+	  
+      blue 0.2turn 0.8turn,
+      red 0.9turn 0.75turn/*,
+      #000 0.75turn*/
+    ) top left / 25% 25% repeat;
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+#conic-10 {
+  background: conic-gradient(
+      green 0.4turn,
+	  
+      blue 0.4turn 0.6turn,
+      red 0.6turn 1turn/*,
+      #000 0.75turn*/
+    ) top left / 25% 25% repeat;
+	
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+#conic-11 {
+  background: conic-gradient(
+      green 0.5turn,
+      red 0.5turn 1turn/*,
+      #000 0.75turn*/
+    ) top left / 25% 25% repeat;
+	
+  border: 1px solid;
+  background-size: 50px 50px;
+}
+
+
+#radial-1 {	
+	background: radial-gradient(red 50%, transparent 50%), radial-gradient(blue 50%, transparent 50%) 4px 3px;
+	background-size: 35px 35px;
+}
+
+#radial-2 {	
+	background: radial-gradient(green 20%, transparent 20%), radial-gradient(yellow 35%, transparent 35%), radial-gradient(red 50%, transparent 50%), radial-gradient(blue 65%, transparent 65%), linear-gradient(45deg, orange 25%, transparent 25%, transparent 50%, orange 50%, orange 75%, transparent 75%, transparent 100%);
+	background-size: 50px 50px;
+}
+
+#radial-3 {	
+	background: radial-gradient(green 30%, transparent 30%), radial-gradient(blue 45%, transparent 55%), linear-gradient(45deg, red 25%, transparent 25%, red 75%, transparent 75%);
+	background-size: 50px 50px;
+}
+
+
+/* EXAMPLES From https://projects.verou.me/css3patterns/ */
+#microbal-mat {
+	background:
+radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+radial-gradient(at 100% 100%,      rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),
+#8a3;
+background-size: 20px 20px;
+}
+
+#stairs {
+	background:
+linear-gradient(63deg, #999 23%, transparent 23%) 7px 0,
+linear-gradient(63deg, transparent 74%, #999 78%),
+linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%),
+#444;
+background-size: 16px 48px;
+}
+
+#arrows {
+	background: linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
+linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
+linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);
+background-color:#e1ebbd;
+background-size: 128px 128px;	
+}
+
+#half-rombes {
+	background: #36c;
+background:
+linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+#36c;
+background-size: 15px 30px;
+}
+
+
+#zig-zag {
+	background:
+linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0,
+linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0,
+linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
+linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
+background-size: 100px 100px;
+background-color: #EC173A;
+}
+
+#weave {
+	background:
+linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+background-color:#708090;
+background-size: 64px 128px;
+}
+
+#upholstery {
+	background:
+radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
+radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 50px 50px,
+radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 50px 0,
+radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 0 50px,
+radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 50px 0,
+radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 100px 50px,
+radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 0 0,
+radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 50px 50px,
+linear-gradient(45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0,
+linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
+background-color: #300;
+background-size: 100px 100px;
+}
+
+#starry-night {
+	background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+#marrakesh {
+	background-color:white;
+background-image:
+radial-gradient(midnightblue 9px, transparent 10px),
+repeating-radial-gradient(midnightblue 0, midnightblue 4px, transparent 5px, transparent 20px, midnightblue 21px, midnightblue 25px, transparent 26px, transparent 50px);
+background-size: 30px 30px, 90px 90px;
+background-position: 0 0;
+}
+
+#rainbow-bokeh {
+	background:
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0,
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.3) 13%, rgba(255,255,255,0) 14%) 0 0,
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 17%, rgba(255,255,255,.43) 19%, rgba(255,255,255,0) 20%) 0 110px,
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -130px -170px,
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) 130px 370px,
+radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.1) 11%, rgba(255,255,255,.2) 13%, rgba(255,255,255,0) 14%) 0 0,
+linear-gradient(45deg, #343702 0%, #184500 20%, #187546 30%, #006782 40%, #0b1284 50%, #760ea1 60%, #83096e 70%, #840b2a 80%, #b13e12 90%, #e27412 100%);
+background-size: 470px 470px, 970px 970px, 410px 410px, 610px 610px, 530px 530px, 730px 730px, 100% 100%;
+background-color: #840b2a;
+}
+
+#carbon {
+	background:
+linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-color: #131313;
+background-size: 20px 20px;
+}
+
+#carbon-fibre {
+	background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+
+#hearts {
+	background:
+radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+radial-gradient(circle closest-side at 42% 22%, #d35 43%, rgba(221,51,85,0) 45%),
+radial-gradient(circle closest-side at 58% 22%, #d35 43%, rgba(221,51,85,0) 45%),
+radial-gradient(circle closest-side at 50% 35%, #d35 32%, rgba(221,51,85,0) 27%),
+
+radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+radial-gradient(circle closest-side at 40% 22%, #d35 40%, rgba(221,51,85,0) 45%) 52px 50px,
+radial-gradient(circle closest-side at 60% 22%, #d35 40%, rgba(221,51,85,0) 45%) 48px 50px,
+radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 37%) 50px 50px;
+background-color:#b03;
+background-size:100px 100px;
+}
+
+#argyle {
+	background-color: #6d695c;
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
+}
+
+#steps {
+	background-color: #FF7D9D;
+background-size: 58px 58px;
+background-position: 0px 2px, 4px 35px, 29px 31px, 33px 6px,
+0px 36px, 4px 2px, 29px 6px, 33px 30px;
+background-image:
+linear-gradient(335deg, #C90032 23px, transparent 23px),
+linear-gradient(155deg, #C90032 23px, transparent 23px),
+linear-gradient(335deg, #C90032 23px, transparent 23px),
+linear-gradient(155deg, #C90032 23px, transparent 23px),
+
+linear-gradient(335deg, #C90032 10px, transparent 10px),
+linear-gradient(155deg, #C90032 10px, transparent 10px),
+linear-gradient(335deg, #C90032 10px, transparent 10px),
+linear-gradient(155deg, #C90032 10px, transparent 10px);
+}
+
+#waves {
+	background:
+radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent),
+radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent) 0 -50px;
+background-color: slategray;
+background-size:75px 100px;
+}
+
+#cross {
+	background:
+radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent),
+radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent) 50px 50px,
+linear-gradient(#A8B1BB 8px, transparent 8px) 0 -4px,
+linear-gradient(90deg, #A8B1BB 8px, transparent 8px) -4px 0;
+background-color: slategray;
+background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px;
+}
+
+#yin-yang {
+	background:
+radial-gradient(circle at 50% 59%, #D2CAAB 3%, #364E27 4%, #364E27 11%, rgba(54,78,39,0) 12%, rgba(54,78,39,0)) 50px 0,
+radial-gradient(circle at 50% 41%, #364E27 3%, #D2CAAB 4%, #D2CAAB 11%, rgba(210,202,171,0) 12%, rgba(210,202,171,0)) 50px 0,
+radial-gradient(circle at 50% 59%, #D2CAAB 3%, #364E27 4%, #364E27 11%, rgba(54,78,39,0) 12%, rgba(54,78,39,0)) 0 50px,
+radial-gradient(circle at 50% 41%, #364E27 3%, #D2CAAB 4%, #D2CAAB 11%, rgba(210,202,171,0) 12%, rgba(210,202,171,0)) 0 50px,
+radial-gradient(circle at 100% 50%, #D2CAAB 16%, rgba(210,202,171,0) 17%),
+radial-gradient(circle at 0% 50%, #364E27 16%, rgba(54,78,39,0) 17%),
+radial-gradient(circle at 100% 50%, #D2CAAB 16%, rgba(210,202,171,0) 17%) 50px 50px,
+radial-gradient(circle at 0% 50%, #364E27 16%, rgba(54,78,39,0) 17%) 50px 50px;
+background-color:#63773F;
+background-size:100px 100px;
+}
+
+#stars {
+	background:
+linear-gradient(324deg, #232927 4%,   transparent 4%) -70px 43px,
+linear-gradient( 36deg, #232927 4%,   transparent 4%) 30px 43px,
+linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 30px 43px,
+linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -70px 43px,
+linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -70px 23px,
+linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 30px 23px,
+
+linear-gradient(324deg, #232927 4%,   transparent 4%) -20px 93px,
+linear-gradient( 36deg, #232927 4%,   transparent 4%) 80px 93px,
+linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 80px 93px,
+linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -20px 93px,
+linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -20px 73px,
+linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 80px 73px;
+background-color: #232927;
+background-size: 100px 100px;
+}
+
+#brady-bunch {
+	background-image:
+radial-gradient(closest-side, transparent 0%, transparent 75%, #B6CC66 76%, #B6CC66 85%, #EDFFDB 86%, #EDFFDB 94%, #FFFFFF 95%, #FFFFFF 103%, #D9E6A7 104%, #D9E6A7 112%, #798B3C 113%, #798B3C 121%, #FFFFFF 122%, #FFFFFF 130%, #E0EAD7 131%, #E0EAD7 140%),
+radial-gradient(closest-side, transparent 0%, transparent 75%, #B6CC66 76%, #B6CC66 85%, #EDFFDB 86%, #EDFFDB 94%, #FFFFFF 95%, #FFFFFF 103%, #D9E6A7 104%, #D9E6A7 112%, #798B3C 113%, #798B3C 121%, #FFFFFF 122%, #FFFFFF 130%, #E0EAD7 131%, #E0EAD7 140%);
+background-size: 110px 110px;
+background-color: #C8D3A7;
+background-position: 0 0, 55px 55px;
+}
+
+#shippo {
+	background-color:#def;
+background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+background-size:80px 80px;
+background-position:0 0, 40px 40px;
+}
+
+#bricks {
+	background-color: silver;
+background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
+linear-gradient(155deg, #d00 23px, transparent 23px),
+linear-gradient(335deg, #b00 23px, transparent 23px),
+linear-gradient(155deg, #d00 23px, transparent 23px);
+background-size: 58px 58px;
+background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+}
+
+#seigaiha {
+	background-color:silver;
+background-image:
+radial-gradient(circle at 100% 150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+radial-gradient(circle at 0    150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
+radial-gradient(circle at 50%  100%, white 10%, silver 10%, silver 23%, white 23%, white 30%, silver 30%, silver 43%, white 43%, white 50%, silver 50%, silver 63%, white 63%, white 71%, transparent 71%, transparent),
+radial-gradient(circle at 100% 50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent),
+radial-gradient(circle at 0    50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent);
+background-size: 100px 50px;
+}
+
+#japanese-cube {
+	background-color:#556;
+background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a),
+linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+background-size:80px 140px;
+background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+#polka-dot {
+	background-color:#001;
+background-image: radial-gradient(white 15%, transparent 16%),
+radial-gradient(white 15%, transparent 16%);
+background-size: 60px 60px;
+background-position: 0 0, 30px 30px;
+}
+
+#houndstooth {
+	background:
+linear-gradient(-45deg, white 25%, transparent 25%, transparent 75%, black 75%, black) 0 0,
+linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, white 75%, white) 1em 1em,
+linear-gradient(45deg, black 17%, transparent 17%, transparent 25%, black 25%, black 36%, transparent 36%, transparent 64%, black 64%, black 75%, transparent 75%, transparent 83%, black 83%) 1em 1em;
+background-color: white;
+background-size: 2em 2em;
+}
+
+#checkerboard {
+	background-color: #eee;
+background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+background-size: 60px 60px;
+background-position: 0 0, 30px 30px;
+}
+
+#diagonal-checkerboard {
+	background-color: #eee;
+background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+background-size: 60px 60px;
+}
+
+#tartan {
+	background-color: hsl(2, 57%, 40%);
+background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
+}
+
+#madras {
+	background-color: hsl(34, 53%, 82%);
+background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+  hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+  hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+  hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+  hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+  hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px
+  ),
+repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+  hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+  hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+  hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+  hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+  hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px
+);
+}
+
+#lined-paper {
+	background-color: #fff;
+background-image:
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+}
+
+#blueprint-grid {
+	background-color:#269;
+background-image: linear-gradient(white 2px, transparent 2px),
+linear-gradient(90deg, white 2px, transparent 2px),
+linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+#tablecloth {
+	background-color:white;
+background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%),
+linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+background-size:50px 50px;
+}
+
+#diagonal-stripes {
+	background-color: gray;
+background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+
+#vertical-stripes {
+	background-color: gray;
+background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+background-size: 50px 50px;
+}
+
+#horizontal-stripes {
+	background-color: gray;
+background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
+background-size: 50px 50px;
+}
+
+#cicada-stripes {
+	background-color: #026873;
+background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
+linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
+linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
+linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+background-size: 13px, 29px, 37px, 53px;
+}
+
+#honeycomb { 
+background:
+radial-gradient(circle farthest-side at 0% 50%,#fb1 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#B71 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#fb1 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#fb1 0)0 0,
+linear-gradient(150deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0,
+linear-gradient(30deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0,
+linear-gradient(90deg,#B71 2%,#fb1 0,#fb1 98%,#B71 0%)0 0 #fb1;
+background-size: 40px 60px;
+}
+
+#wave {
+	background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+background-size: 110px 200px;
+background-repeat: repeat-x;
+}
+
+#pyramid {
+	background: linear-gradient(315deg, transparent 75%, #d45d55 0)-10px 0,
+    linear-gradient(45deg, transparent 75%, #d45d55 0)-10px 0,
+    linear-gradient(135deg, #a7332b 50%, transparent 0) 0 0,
+    linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
+    background-size: 20px 20px;
+}
+
+#chocolate-weave {
+	background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+    linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),
+    linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+    background-size: 25px 25px;
+}
+
+#cross-dots {
+	background:
+    radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    #fff;
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}

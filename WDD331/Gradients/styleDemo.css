@@ -1,0 +1,179 @@
+:root {
+	/* Triangle angles */
+	--angle: 120deg;
+	--angleNeg: -120deg;
+
+	/* How wide the triangle is*/
+	--cutoff: 90%;
+
+	--bgWidth: 80px;
+	--bgHeight: 38px;
+
+	/* Triangle color and background color*/
+	/* Can change to more contrasting colors to see pattern better */
+	--lightRGB: /*grey;*/rgb(3, 51, 45);
+	--darkRGB: rgb(3, 46, 40);
+	}
+
+body{
+    background-color: var(--darkRGB);
+}
+
+/* First Linear Gradient (creates a half triangle) */
+#step1 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+	    var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* First Triangle */
+#step2 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* Second Triangle */
+#step3 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* First Triforce complete */
+#step4 {
+	background:
+	    /* Single Triforce */
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+		var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* Second Triforce - First Triangle */
+#step5 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+        var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* Second Triforce - Second Triangle */
+#step6 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+
+        linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+        linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+        var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+
+/* final background */
+#final {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 0 0,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 0px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 40px 0px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 50px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 60px 0px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 60px 0px,
+		var(--darkRGB);
+	background-size: var(--bgWidth) var(--bgHeight);
+}
+
+/* off center triforces*/
+#off-center {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 2px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 2px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 5px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 5px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 18px 20px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 18px 20px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 51px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 20px 51px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 28px 36px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 28px 36px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 36px 51px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 36px 51px,
+		var(--darkRGB);
+	background-size: 38px 60px;
+}
+
+/* off center triforces - test */
+#test1 {
+	background:
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 0,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 10px 0,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 4px 10px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 4px 10px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 16px 10px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 16px 10px,
+
+/*
+        linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 16px -14px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 15.5px -14px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 31px -14px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 30.5px -14px,
+
+		linear-gradient(var(--angle), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 24px -28px,
+		linear-gradient(var(--angleNeg), transparent var(--cutoff), var(--lightRGB) var(--cutoff)) 23.5px -28px,*/
+
+		var(--darkRGB);
+	background-size: 32px 48px;
+}

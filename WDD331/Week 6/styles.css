@@ -1,0 +1,50 @@
+/*
+* Ashley DeMott
+* WDD331 - Week 6
+* Flexbox
+*/
+
+/* Formatting for all the cards, rounded edges */
+.card {	
+	border-radius: 5px;
+	border: 2px grey solid;	
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+/* Image will take up most of the space, uppper corners rounded */
+.card img {
+	/* Save 26px for the h2 */
+	height: calc(100% - 26px);
+	width: 100%;
+	border-radius: 2px 2px 0px 0px;
+}
+
+/* Text is centered, move up into the card */
+.card h2 {	
+	font-family: consolas;
+	color: grey;
+	text-align: center;
+	margin: -5px;
+}
+
+/* Displays cards using flex row */
+.row-grid {
+	display: flex;
+	
+	flex-flow: row wrap;
+	gap: 5px;
+}
+
+/* Displays cards using flex column, must have a max height to wrap */
+.col-grid {
+	display: flex;
+	
+	flex-flow: column wrap;
+	height: 2500px;
+	
+	/* Column gap won't stay on larger screen sizes?*/
+	gap: 5px;
+	column-gap: 5px;
+	flex-grow: 0;
+}
