@@ -1030,4 +1030,97 @@ img {
   border: 0;
 }
 
+body {
+  font-family: "BYUI Open Sans";
+}
+
+.site-banner {
+  background-color: #056cb6;
+  padding: 30px;
+  margin: -10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.site-banner h1 {
+  display: none;
+}
+.site-banner__left {
+  color: white;
+}
+.site-banner__left a > span {
+  width: 100px;
+  background-color: black;
+  padding: 10px;
+}
+.interests .interest-box {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 10px);
+  margin: 25px 10px;
+}
+.interests .interest-box__image {
+  width: 100%;
+}
+.interests .interest-box__link {
+  color: #0076b6;
+  padding: 10px;
+  margin-top: -1px;
+  z-index: -1;
+  border: 1px solid #727272;
+}
+.interests .interest-box__link:hover {
+  color: red;
+}
+.interests .interest-box--main .interest-box__link {
+  display: none;
+}
+
+.resources, .information {
+  border: 1px solid #727272;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.resources__title, .information__title {
+  margin: 0px;
+  background-color: #727272;
+  color: white;
+  padding: 5px;
+}
+.resources__link, .information__link {
+  background-color: #eaeaea;
+  list-style-type: none;
+  border-bottom: 1px solid #727272;
+  padding: 5px;
+  color: #056cb6;
+  text-decoration: none;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+}
+.calendar__title {
+  margin: 0px;
+  background-color: #056cb6;
+  color: white;
+  padding: 5px;
+}
+.calendar__date {
+  text-decoration: none;
+  text-decoration: bold;
+  color: black;
+}
+/* Desktop size */
+@media (min-width: 1080px) {
+  /*
+  main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 25px 1fr 1fr 2fr;
+  }*/
+}
+
 /*# sourceMappingURL=styles.css.map */

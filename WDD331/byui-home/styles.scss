@@ -31,3 +31,134 @@ img {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+body {
+font-family: 'BYUI Open Sans'
+}
+
+
+.site-banner {
+background-color: $byui-blue;
+padding: 30px;
+margin: -10px;
+margin-bottom: 10px;
+
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+
+h1 {
+display: none;
+}
+
+&__left {
+color: white;
+
+a > span {
+width: 100px;
+background-color: black;
+padding: 10px;
+}
+
+}
+
+&__right {
+
+}
+}
+
+.interests {
+
+.interest-box {
+
+display: flex;
+flex-direction: column;
+width: calc(100% - 10px); // Margins
+
+margin: 25px 10px;
+
+&__image {
+width: 100%;
+}
+
+&__link {
+color: $link-blue;
+padding: 10px;
+margin-top: -1px;
+z-index: -1;
+border: 1px solid $dark-gray;
+
+&:hover {
+color: red;
+}
+}
+
+&--main {
+
+.interest-box__link {
+display: none;
+}
+}
+}
+}
+
+.resources, .information {
+border: 1px solid $dark-gray;
+width: 400px;
+display: flex;
+flex-direction: column;
+
+&__title {
+margin: 0px;
+background-color: $dark-gray;
+color: white;
+padding: 5px;
+
+}
+
+&__link {
+background-color: $light-gray;
+list-style-type: none;
+border-bottom: 1px solid $dark-gray;
+padding: 5px;
+color: $byui-blue;
+text-decoration: none;
+}
+}
+
+.calendar {
+display: flex;
+flex-direction: column;
+
+&__title {
+margin: 0px;
+background-color: $byui-blue;
+color: white;
+padding: 5px;
+}
+
+&__date {
+text-decoration: none;
+text-decoration: bold;
+color: black;
+
+&__desc {
+
+}
+
+}
+
+}
+
+
+/* Desktop size */
+@media (min-width: 1080px) {
+
+/*
+main {
+display: grid;
+grid-template-columns: 2fr 1fr;
+grid-template-rows: 25px 1fr 1fr 2fr;
+}*/
+
+}

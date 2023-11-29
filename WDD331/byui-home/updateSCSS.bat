@@ -1,0 +1,3 @@
+@echo updating css...
+@echo off
+sass styles.scss styles.css
