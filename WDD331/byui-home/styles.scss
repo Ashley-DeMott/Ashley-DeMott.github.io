@@ -33,9 +33,8 @@ img {
 }
 
 body {
-font-family: 'BYUI Open Sans'
+font-family: 'BYUI Open Sans';
 }
-
 
 .site-banner {
 background-color: $byui-blue;
@@ -69,7 +68,7 @@ padding: 10px;
 
 .interests {
 
-.interest-box {
+.interest {
 
 display: flex;
 flex-direction: column;
@@ -93,9 +92,9 @@ color: red;
 }
 }
 
-&--main {
+&--hero {
 
-.interest-box__link {
+&__link {
 display: none;
 }
 }
@@ -103,7 +102,6 @@ display: none;
 }
 
 .resources, .information {
-border: 1px solid $dark-gray;
 width: 400px;
 display: flex;
 flex-direction: column;
@@ -119,7 +117,8 @@ padding: 5px;
 &__link {
 background-color: $light-gray;
 list-style-type: none;
-border-bottom: 1px solid $dark-gray;
+border: 1px solid $dark-gray;
+border-top: none;
 padding: 5px;
 color: $byui-blue;
 text-decoration: none;
@@ -150,15 +149,100 @@ color: black;
 
 }
 
+.newsroom {
+
+&__article {
+border-top: 1px solid $light-gray;
+padding: 5px;
+display: grid;
+grid-template-columns: 160px auto;
+grid-template-rows: auto auto 1fr;
+grid-template-areas: "img date" "img title" "img desc";
+
+&__image {
+width: 150px;
+padding: 5px;
+grid-area: img;
+
+}
+
+&__date, &__title, &__blurb {
+padding: 0px;
+margin: 5px;
+}
+
+&__date {
+grid-area: date;
+font-style: italic;
+}
+
+&__title {
+grid-area: title;
+color: $byui-blue;
+}
+
+&__blurb {
+gird-area: desc;
+margin-top: 0px;
+}
+}
+
+&__button {
+justify: right;
+}
+
+}
+
 
 /* Desktop size */
 @media (min-width: 1080px) {
 
-/*
 main {
 display: grid;
-grid-template-columns: 2fr 1fr;
-grid-template-rows: 25px 1fr 1fr 2fr;
-}*/
+grid-template-areas: "hero hero info"
+"hero hero links" 
+"hero hero dates"
+"newsroom newsroom message";
+grid-gap: 15px;
+}
+
+.interests {
+grid-area: hero;
+&__carousel {
+
+display: flex;
+flex-direction: row;
+}
+
+.interest {
+width: calc(100% / 3.0);
+
+&--hero {
+}
+}
+
+}
+
+.information {
+grid-area: info;
+}
+
+.resources {
+grid-area: links;
+}
+
+.calendar {
+grid-area: dates;
+}
+
+.university-message {
+grid-area: message;
+}
+
+.newsroom {
+grid-area: newsroom;
+}
+
+
 
 }
