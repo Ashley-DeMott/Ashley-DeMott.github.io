@@ -1044,7 +1044,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-.site-banner h1, .site-banner [role=search] {
+.site-banner h1,
+.site-banner [role=search] {
   display: none;
 }
 .site-banner [class^=icon-] {
@@ -1108,22 +1109,31 @@ body {
 }
 
 .calendar {
-  display: flex;
-  flex-direction: column;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 3em 1fr;
+  grid-template-areas: "title title title" "date desc desc";
+  border-bottom: solid 1px #eaeaea;
 }
 .calendar__title {
   margin: 0px;
   background-color: #056cb6;
   color: white;
   padding: 5px;
+  grid-area: title;
 }
 .calendar__date {
   text-decoration: none;
   text-decoration: bold;
   color: black;
 }
-.calendar__desc {
-  float: right;
+.calendar__date__title {
+  grid-area: date;
+}
+.calendar__date__desc {
+  grid-area: desc;
+  padding: 10px;
+  margin: 10px;
 }
 
 .newsroom__article {
@@ -1170,7 +1180,13 @@ body {
 }
 
 /* Desktop size */
-@media (min-width: 1080px) {
+@media (min-width: 800px) {
+  .resources,
+  .information,
+  .university-message,
+  .calendar {
+    width: 100%;
+  }
   main {
     display: grid;
     grid-template-areas: "hero hero info" "hero hero links" "hero hero dates" "newsroom newsroom message";
