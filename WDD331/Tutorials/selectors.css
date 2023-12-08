@@ -1,0 +1,115 @@
+div {
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	background-color: red;
+	text-align: center;
+}
+
+#by-id {
+	background-color: blue;
+}
+
+.by-class {
+	background-color: yellow;
+}
+
+div[role="by-role"] {
+	background-color: green;
+}
+
+#combined > * {
+	width: 150px;
+	height: 50px;
+	margin: 5px;	
+	text-align: center;
+}
+
+
+.c {
+	border-radius: 5px;
+}
+
+section.c {
+	background-color: purple;
+}
+
+#i {
+	border-radius: 10px;	
+}
+
+section#i {
+	background-color: pink;
+}
+
+[role="r"] {
+	border-radius: 15px;
+}
+
+section[role="r"] {
+	background-color: turquoise;
+}
+
+
+/* Parent */
+#justify-self {
+	display: flex;
+	justify-self: center;
+}
+
+#justify-content {
+	display: flex;
+	justify-content: center;
+}
+
+#justify-items {
+	display: flex;
+	justify-items: center;	
+}
+
+#align-self {
+	display: flex;
+	align-self: center;
+}
+
+#align-content {
+	display: flex;
+	align-content: center;
+}
+
+#align-items {
+	display: flex;
+	align-items: right;	
+}
+
+/* Child / Each Item */
+#justify-self-child > * {
+	display: flex;
+	justify-self: center;
+}
+
+#justify-content-child > * {
+	display: flex;
+	justify-content: center;
+}
+
+#justify-items-child > * {
+	display: flex;
+	justify-items: center;	
+}
+
+#align-self-child > * {
+	display: flex;
+	align-self: center;
+}
+
+#align-content-child > * {
+	display: flex;
+	align-content: center;
+}
+
+#align-items-child > * {
+	display: flex;
+	align-items: center;	
+}
+

@@ -1,0 +1,239 @@
+@use "_variables" as v;
+
+// Add images to the side of headers
+@mixin addImage($width, $height, $image: "") {
+  display: block;
+  content: $image;
+  width: $width;
+  height: $height;
+}
+
+// Set a section's display to flex, with the given direction, justify, and wrap values
+@mixin flex($direction, $justify: flex-start, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+
+.page-wrapper {
+  /* Display everything in a single column */
+  display: grid;
+  grid-template-columns: 1fr;
+
+  /* Keep background over whole page */
+  margin: -10px -1.5%; // ToDo: width < 550px starts showing white outside margin
+
+  /* Background of repeating flowers */
+  background-image: v.$background-flowers;
+  background-size: 1150px;
+  background-position: center top;
+  background-color: v.$background-color;
+}
+
+h1 {
+  /* For the main heading/title */
+  color: v.$title-color;
+  font-weight: 900; /* Heavy */
+  font-size: 90px;
+  letter-spacing: 1px;
+  line-height: 1em;
+
+  margin: -25px -2%;
+  padding: 2%;
+  margin-bottom: 0;
+  text-align: center;
+
+  &:before {
+    /* Add "Tropical" before the header */
+    display: grid; /* Text is centered a row above */
+    content: "Tropical";
+  }
+}
+
+h2,
+h3 {
+  /* For all subheadings */
+  font-family: v.$fonts-headline;
+  font-size: 3em;
+  line-height: 1em;
+  text-align: center;
+  margin: 5%;
+}
+
+h2 {
+  // The page's h2 cannot use flex since it has several text sections inside of it, spacing is altered
+  &:before {
+    /* Add Toucan SVG before the h2 header */
+    @include addImage(75px, 75px, v.$toucan);
+    float: left;
+  }
+}
+
+h3 {
+  /* The :before and :after items of the headers will be in the flex row */
+  @include flex(row, center);
+  column-gap: 0px;
+
+  &:before,
+  &:after {
+    flex-shrink: 0;
+
+	/* Add Snowflake flower to h3 headers */
+    @include addImage(50px, 50px, v.$snowflake-flower);
+  }
+}
+
+.sidebar h3 {
+  &:before,
+  &:after {
+    /* Add Bell Flower SVG to the sidebar's h3 headers */
+    @include addImage(25px, 50px, v.$bell-flower);
+  }
+}
+
+abbr {
+  text-decoration: none;
+}
+
+p {
+  font-family: v.$fonts-body;  
+  color: v.$text-dark;
+  font-size: 1em;
+  line-height: 1.5em;
+
+  margin: 0;
+  padding: 1em;
+}
+
+a {
+  /* All links */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: v.$text-dark;
+  text-decoration: none;
+  transition: border-color 0.2s ease-in-out;
+
+  &:hover {
+    border-color: v.$accent1;
+    border-bottom-width: 2px;
+  }
+}
+
+.summary {	
+  font-weight: 300;  
+  color: v.$text-light;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
+  margin-left: 0px;
+}
+
+.intro,
+.main {
+  margin: 10px;
+}
+
+.sidebar,
+header > h1 {
+  /* Add a Bamboo background */
+  background-image: v.$bamboo;
+  background-position: right top;
+  background-repeat: repeat;
+}
+
+.sidebar {
+  padding: 10px;
+  margin: 0;
+
+  & ul {
+    list-style: none;
+    @include flex(row, flex-start, wrap);
+    gap: 10%;
+
+    & > li {
+      padding: 2%;
+
+      &:before {
+        /* Add a flower before each list item */
+        @include addImage(35px, 32px, v.$snowflake-flower);
+        display: inline-block; // Override to inline
+      }
+
+      &:hover {
+        &:before {
+          /* Animate the flower */
+          transform: rotate(-720deg);
+          transition-duration: 1.3s;
+          transition-property: transform;
+        }
+      }
+    }
+  }
+
+  .design-archives ul {
+    @include flex(row, space-around);
+  }
+}
+
+footer {
+  padding: 20px;
+}
+
+ul,
+p {
+  // Make the text easier to read
+  font-weight: 600;
+}
+
+@media (min-width: v.$responsive-width) {
+  /* Larger screen size */
+
+  .page-wrapper {
+    /* Use grid-template-area to assign sections to the page */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Change to 4 evenly sized columns */
+    grid-template-areas:
+      "intro intro intro sidebar"
+      "main main main sidebar"
+      "main main main sidebar";
+    grid-gap: 5px;
+  }
+
+  /* Assign each item a grid-area */
+  section.intro {
+    grid-area: intro;
+  }
+  div.main {
+    grid-area: main;
+  }
+  .sidebar {
+    grid-area: sidebar;
+    margin-top: -25px;
+	padding-right: 0;
+
+    &:before {
+      /* Add a block between the header and sidebar content, with an image */
+     // Goal: height is title's size
+	  @include addImage(100%, 250px);
+
+      z-index: 4; /* On top of the bamboo bg */
+      background-image: v.$bell-flower;
+    }
+
+    ul {
+      @include flex(column);
+      & > li {
+        margin-bottom: 15px; /* Add more spacing to the sidebar items */
+      }
+    }
+
+    /* Since super specific above, needs to be specific here */
+    .design-archives ul {
+      @include flex(column);
+    }
+  }
+
+  h1 {
+    margin-right: -20px; /* Background goes over the grid-gap */
+  }
+}
+/*# sourceMappingURL=style.css.map */
