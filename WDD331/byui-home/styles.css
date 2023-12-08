@@ -1036,24 +1036,30 @@ body {
 
 .site-banner {
   background-color: #056cb6;
-  padding: 30px;
+  padding: 20px;
   margin: -10px;
   margin-bottom: 10px;
+  color: white;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
-.site-banner h1 {
+.site-banner h1,
+.site-banner [role=search] {
   display: none;
 }
-.site-banner__left {
+.site-banner [class^=icon-] {
   color: white;
 }
 .site-banner__left a > span {
-  width: 100px;
+  width: 200px;
   background-color: black;
-  padding: 10px;
+  padding: 25px;
 }
+.site-banner__right {
+  justify-content: flex-end;
+}
+
 .interests .interest {
   display: flex;
   flex-direction: column;
@@ -1070,25 +1076,29 @@ body {
   z-index: -1;
   border: 1px solid #727272;
 }
-.interests .interest__link:hover {
-  color: red;
-}
 .interests .interest--hero__link {
   display: none;
 }
 
-.resources, .information {
+.resources,
+.information,
+.university-message {
   width: 400px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 25px;
 }
-.resources__title, .information__title {
+.resources__title,
+.information__title,
+.university-message__title {
   margin: 0px;
   background-color: #727272;
   color: white;
   padding: 5px;
 }
-.resources__link, .information__link {
+.resources__link,
+.information__link,
+.university-message__link {
   background-color: #eaeaea;
   list-style-type: none;
   border: 1px solid #727272;
@@ -1099,20 +1109,33 @@ body {
 }
 
 .calendar {
-  display: flex;
-  flex-direction: column;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 3em 1fr;
+  grid-template-areas: "title title title" "date desc desc";
+  border-bottom: solid 1px #eaeaea;
 }
 .calendar__title {
   margin: 0px;
   background-color: #056cb6;
   color: white;
   padding: 5px;
+  grid-area: title;
 }
 .calendar__date {
   text-decoration: none;
   text-decoration: bold;
   color: black;
 }
+.calendar__date__title {
+  grid-area: date;
+}
+.calendar__date__desc {
+  grid-area: desc;
+  padding: 10px;
+  margin: 10px;
+}
+
 .newsroom__article {
   border-top: 1px solid #eaeaea;
   padding: 5px;
@@ -1139,15 +1162,31 @@ body {
   color: #056cb6;
 }
 .newsroom__article__blurb {
-  gird-area: desc;
+  grid-area: desc;
   margin-top: 0px;
 }
 .newsroom__button {
-  justify: right;
+  border: none;
+  color: white;
+  background-color: #056cb6;
+  border-radius: 2px;
+  padding: 10px;
+  margin-left: 85%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
 }
 
 /* Desktop size */
-@media (min-width: 1080px) {
+@media (min-width: 800px) {
+  .resources,
+  .information,
+  .university-message,
+  .calendar {
+    width: 100%;
+  }
   main {
     display: grid;
     grid-template-areas: "hero hero info" "hero hero links" "hero hero dates" "newsroom newsroom message";

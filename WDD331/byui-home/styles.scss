@@ -18,9 +18,11 @@ $byui-blue: #056cb6;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 img {
   max-width: 100%;
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -33,216 +35,237 @@ img {
 }
 
 body {
-font-family: 'BYUI Open Sans';
+  font-family: 'BYUI Open Sans';
 }
 
 .site-banner {
-background-color: $byui-blue;
-padding: 30px;
-margin: -10px;
-margin-bottom: 10px;
+  background-color: $byui-blue;
+  padding: 20px;
+  margin: -10px;
+  margin-bottom: 10px;
+  color: white;
 
-display: flex;
-flex-direction: row;
-justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-h1 {
-display: none;
-}
+  h1,
+  [role="search"] {
+    display: none;
+  }
 
-&__left {
-color: white;
+  // Make all icons white
+  [class^='icon-'] {
+    color: white;
+  }
 
-a > span {
-width: 100px;
-background-color: black;
-padding: 10px;
-}
+  &__left {
+    a>span {
+      width: 200px;
+      background-color: black;
+      padding: 25px;
+    }
+  }
 
-}
-
-&__right {
-
-}
+  &__right {
+    justify-content: flex-end;
+  }
 }
 
 .interests {
+  .interest {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 10px); // Margins
 
-.interest {
+    margin: 25px 10px;
 
-display: flex;
-flex-direction: column;
-width: calc(100% - 10px); // Margins
+    &__image {
+      width: 100%;
+    }
 
-margin: 25px 10px;
+    &__link {
+      color: $link-blue;
+      padding: 10px;
+      margin-top: -1px;
+      z-index: -1;
+      border: 1px solid $dark-gray;
+    }
 
-&__image {
-width: 100%;
+    &--hero {
+
+      &__link {
+        display: none;
+      }
+    }
+  }
 }
 
-&__link {
-color: $link-blue;
-padding: 10px;
-margin-top: -1px;
-z-index: -1;
-border: 1px solid $dark-gray;
+.resources,
+.information,
+.university-message {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
 
-&:hover {
-color: red;
-}
-}
+  &__title {
+    margin: 0px;
+    background-color: $dark-gray;
+    color: white;
+    padding: 5px;
 
-&--hero {
+  }
 
-&__link {
-display: none;
-}
-}
-}
-}
-
-.resources, .information {
-width: 400px;
-display: flex;
-flex-direction: column;
-
-&__title {
-margin: 0px;
-background-color: $dark-gray;
-color: white;
-padding: 5px;
-
-}
-
-&__link {
-background-color: $light-gray;
-list-style-type: none;
-border: 1px solid $dark-gray;
-border-top: none;
-padding: 5px;
-color: $byui-blue;
-text-decoration: none;
-}
+  &__link {
+    background-color: $light-gray;
+    list-style-type: none;
+    border: 1px solid $dark-gray;
+    border-top: none;
+    padding: 5px;
+    color: $byui-blue;
+    text-decoration: none;
+  }
 }
 
 .calendar {
-display: flex;
-flex-direction: column;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 3em 1fr;
+  grid-template-areas: "title title title" "date desc desc";
+  border-bottom: solid 1px $light-gray;
 
-&__title {
-margin: 0px;
-background-color: $byui-blue;
-color: white;
-padding: 5px;
-}
+  &__title {
+    margin: 0px;
+    background-color: $byui-blue;
+    color: white;
+    padding: 5px;
+    grid-area: title;
+  }
 
-&__date {
-text-decoration: none;
-text-decoration: bold;
-color: black;
+  &__date {
+    text-decoration: none;
+    text-decoration: bold;
+    color: black;
 
-&__desc {
+    &__title {
+      grid-area: date;
+    }
 
-}
+    &__desc {
+      grid-area: desc;
+      padding: 10px;
+      margin: 10px;
+    }
 
-}
-
+  }
 }
 
 .newsroom {
 
-&__article {
-border-top: 1px solid $light-gray;
-padding: 5px;
-display: grid;
-grid-template-columns: 160px auto;
-grid-template-rows: auto auto 1fr;
-grid-template-areas: "img date" "img title" "img desc";
+  &__article {
+    border-top: 1px solid $light-gray;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 160px auto;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: "img date" "img title" "img desc";
 
-&__image {
-width: 150px;
-padding: 5px;
-grid-area: img;
+    &__image {
+      width: 150px;
+      padding: 5px;
+      grid-area: img;
+
+    }
+
+    &__date,
+    &__title,
+    &__blurb {
+      padding: 0px;
+      margin: 5px;
+    }
+
+    &__date {
+      grid-area: date;
+      font-style: italic;
+    }
+
+    &__title {
+      grid-area: title;
+      color: $byui-blue;
+    }
+
+    &__blurb {
+      grid-area: desc;
+      margin-top: 0px;
+    }
+  }
+
+  &__button {
+    border: none;
+    color: white;
+    background-color: $byui-blue;
+    border-radius: 2px;
+    padding: 10px;
+    margin-left: 85%;
+  }
 
 }
 
-&__date, &__title, &__blurb {
-padding: 0px;
-margin: 5px;
+.footer {
+  display: flex;
+  justify-content: center;
 }
-
-&__date {
-grid-area: date;
-font-style: italic;
-}
-
-&__title {
-grid-area: title;
-color: $byui-blue;
-}
-
-&__blurb {
-gird-area: desc;
-margin-top: 0px;
-}
-}
-
-&__button {
-justify: right;
-}
-
-}
-
 
 /* Desktop size */
-@media (min-width: 1080px) {
+@media (min-width: 800px) {
 
-main {
-display: grid;
-grid-template-areas: "hero hero info"
-"hero hero links" 
-"hero hero dates"
-"newsroom newsroom message";
-grid-gap: 15px;
-}
+  .resources,
+  .information,
+  .university-message,
+  .calendar {
+    width: 100%;
+  }
 
-.interests {
-grid-area: hero;
-&__carousel {
+  main {
+    display: grid;
+    grid-template-areas: "hero hero info"
+      "hero hero links"
+      "hero hero dates"
+      "newsroom newsroom message";
+    grid-gap: 15px;
+  }
 
-display: flex;
-flex-direction: row;
-}
+  .interests {
+    grid-area: hero;
 
-.interest {
-width: calc(100% / 3.0);
+    &__carousel {
+      display: flex;
+      flex-direction: row;
+    }
 
-&--hero {
-}
-}
+    .interest {
+      width: calc(100% / 3.0);
+    }
+  }
 
-}
+  .information {
+    grid-area: info;
+  }
 
-.information {
-grid-area: info;
-}
+  .resources {
+    grid-area: links;
+  }
 
-.resources {
-grid-area: links;
-}
+  .calendar {
+    grid-area: dates;
+  }
 
-.calendar {
-grid-area: dates;
-}
+  .university-message {
+    grid-area: message;
+  }
 
-.university-message {
-grid-area: message;
-}
-
-.newsroom {
-grid-area: newsroom;
-}
-
-
-
+  .newsroom {
+    grid-area: newsroom;
+  }
 }
