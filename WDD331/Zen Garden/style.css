@@ -60,7 +60,7 @@ h3:before, h3:after {
   flex-shrink: 0;
   /* Add Snowflake flower to h3 headers */
   display: block;
-  content: url(SVG/snowflakeFlower.svg);
+  content: url(SVG/pinkSnowflakeFlower.svg);
   width: 50px;
   height: 50px;
 }
@@ -114,7 +114,8 @@ a:hover {
 .sidebar,
 header > h1 {
   /* Add a Bamboo background */
-  background-image: url("SVG/bamboo.svg");
+  /* Linear gradient for a bit more realistic color */
+  background-image: linear-gradient(to left, rgba(208, 191, 155, 0.4), rgba(216, 230, 95, 0.3), rgba(208, 191, 155, 0.4)), url("SVG/bamboo.svg");
   background-position: right top;
   background-repeat: repeat;
 }
@@ -137,7 +138,7 @@ header > h1 {
 .sidebar ul > li:before {
   /* Add a flower before each list item */
   display: block;
-  content: url(SVG/snowflakeFlower.svg);
+  content: url(SVG/pinkSnowflakeFlower.svg);
   width: 35px;
   height: 32px;
   display: inline-block;

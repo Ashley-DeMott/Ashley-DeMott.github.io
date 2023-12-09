@@ -67,6 +67,9 @@ h2 {
     /* Add Toucan SVG before the h2 header */
     @include addImage(75px, 75px, v.$toucan);
     float: left;
+	// Add perch for the bird?
+	//border: 3px solid v.$title-color;
+	//border-radius: 50px;
   }
 }
 
@@ -136,7 +139,10 @@ a {
 .sidebar,
 header > h1 {
   /* Add a Bamboo background */
-  background-image: v.$bamboo;
+  /* Linear gradient for a bit more realistic color */
+	background-image:
+	linear-gradient(to left, rgba(208, 191, 155, .4), rgba(216, 230, 95, .3), rgba(208, 191, 155, .4)),
+	v.$bamboo;
   background-position: right top;
   background-repeat: repeat;
 }
