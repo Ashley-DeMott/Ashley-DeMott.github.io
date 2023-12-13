@@ -1,133 +1,153 @@
 html {
-	box-sizing: border-box;
-	font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", "Tahoma", Sans-Serif;
-	font-weight: normal;
-	color: #272727;
-	text-shadow: 0 2px 0 rgba(0,0,0,0.07);
-	color: white;
-		
+  box-sizing: border-box;
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", "Tahoma", Sans-Serif;
+  font-weight: normal;
+  color: #272727;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  color: white;
 }
 
-*, *:before, *:after {
-	box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	margin: 0;
-	font-size: 1.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+  font-size: 1.5em;
 }
 
 .codpen {
-	display: grid;
-	grid-template-rows: auto 1fr 1fr auto;
-	height: 100vh;
-	color: white;
+  display: grid;
+  grid-template-rows: auto 1fr 1fr auto;
+  height: 100vh;
+  color: white;
 }
-
-.codepen > * {
-	border: 1px solid black;
+.codpen > * {
+  border: 1px solid black;
 }
-
-.code {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	background: #1b2b34;
+.codpen.code {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #1b2b34;
 }
 
 .editor {
-	display: grid;
-	grid-template-rows: auto 1fr;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: #1b2b34;
 }
-
 .editor__header {
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-	align-items: center;
-	padding: 5px;
-	grid-gap: 5px;
-	background: rgba(0,0,0,0.1);	
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 5px;
+  grid-gap: 5px;
+  background: rgba(0, 0, 0, 0.1);
 }
-
 .editor__code {
-	display: grid;
-	grid-template-columns: auto 1fr;
+  display: grid;
+  grid-template-columns: 1.5em calc(100% - 1.5em);
+  grid-template-areas: "gutter code";
 }
-
 .editor__gutter {
-	background: rgba(0,0,0,0.1);
+  grid-area: gutter;
+  background: rgba(0, 0, 0, 0.1);
 }
-
 .editor__number {
-	display: block;
-	padding: 0 10px;
+  display: block;
+  padding: 0 1em;
 }
-
 .editor__input {
-	resize: none;
-	background: none;
-	border: 0;
-	color: grey;
-	font-size: 16px;
-	line-height: 19px;
+  grid-area: code;
+  width: 100%;
+  height: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  resize: none;
+  background: none;
+  border: 0;
+  color: grey;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 .pen {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-auto-flow: column;
-	align-items: center;
-	grid-gap: 10px;
-	background: black;
-	border-bottom: 5px solid grey;
-	padding: 10px;
+  display: grid;
+  grid-template-rows: 4;
+  grid-template-columns: 2;
+  align-items: center;
+  grid-gap: 10px;
+  background: black;
+  border-bottom: 5px solid grey;
+  padding: 10px;
+}
+.pen__details {
+  grid-row: 1/-1;
+  grid-column: 1;
 }
 
 .preview {
-	display: grid;
+  display: grid;
 }
-
-/* Buttons */
 
 .button {
-	background: grey;
-	border: 0;
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	font-size: 15px;
-	position: relative;
-	
+  background: grey;
+  border: 0;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  position: relative;
 }
-
-button:hover {
-	color: grey;
-	background: #1b2b34;
+.button:hover {
+  color: grey;
+  background: #1b2b34;
 }
-
 .button--small {
-	font-size: 12px;
-	padding: 4px;	
+  font-size: 12px;
+  padding: 4px;
 }
-
-/* Add yellow stripe */
 .button--dirty:before {
-	background: yellow;
-	display: block;
-	content: '';
-	height: 2px;
-	width: calc(100% - 6px);
-	position: absolute;
-	left: 3px;	
-	top: 3px;
+  background: yellow;
+  display: block;
+  content: "";
+  height: 2px;
+  width: calc(100% - 6px);
+  position: absolute;
+  left: 3px;
+  top: 3px;
 }
 
 .settings {
-	padding: 5px;
-	background: black;
-	border-top: 1px solid grey;
+  padding: 5px;
+  background: black;
+  border-top: 1px solid grey;
 }
+
+@media (min-width: 700px) {
+  .pen {
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+  }
+  .code {
+    display: flex;
+    flex-direction: row;
+  }
+  .code .editor {
+    width: 33.3333333333%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
