@@ -1044,17 +1044,21 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+.site-banner a {
+  text-decoration: none;
+}
 .site-banner h1,
 .site-banner [role=search] {
   display: none;
 }
 .site-banner [class^=icon-] {
   color: white;
+  font-size: 2em;
 }
 .site-banner__left a > span {
   width: 200px;
   background-color: black;
-  padding: 25px;
+  padding: 23px 15px;
 }
 .site-banner__right {
   justify-content: flex-end;
@@ -1103,7 +1107,7 @@ body {
   list-style-type: none;
   border: 1px solid #727272;
   border-top: none;
-  padding: 5px;
+  padding: 7px;
   color: #056cb6;
   text-decoration: none;
 }
@@ -1186,6 +1190,9 @@ body {
   .university-message,
   .calendar {
     width: 100%;
+  }
+  .site-banner__left a > span {
+    padding-bottom: 27px;
   }
   main {
     display: grid;

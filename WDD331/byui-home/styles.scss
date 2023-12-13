@@ -7,7 +7,7 @@ $dark-gray: #727272;
 $med-gray: #b4b3b5;
 $light-gray: #eaeaea;
 $body-font: #020202;
-$link-blue: #0076b6; //why do we have both of these blues?
+$link-blue: #0076b6;
 $byui-blue: #056cb6;
 
 // Utility classes
@@ -49,21 +49,28 @@ body {
   flex-direction: row;
   justify-content: space-between;
 
+   // Remove underlines from links
+   a {
+      text-decoration: none;
+   }
+
+  // Search isn't shown in smaller screen size
   h1,
   [role="search"] {
     display: none;
   }
 
-  // Make all icons white
+  // Make all banner icons white and larger
   [class^='icon-'] {
     color: white;
+	font-size: 2em;
   }
 
   &__left {
     a>span {
       width: 200px;
       background-color: black;
-      padding: 25px;
+      padding: 23px 15px; // Small size stays within the header
     }
   }
 
@@ -77,7 +84,6 @@ body {
     display: flex;
     flex-direction: column;
     width: calc(100% - 10px); // Margins
-
     margin: 25px 10px;
 
     &__image {
@@ -93,7 +99,6 @@ body {
     }
 
     &--hero {
-
       &__link {
         display: none;
       }
@@ -101,6 +106,7 @@ body {
   }
 }
 
+// All the side boxes
 .resources,
 .information,
 .university-message {
@@ -114,7 +120,6 @@ body {
     background-color: $dark-gray;
     color: white;
     padding: 5px;
-
   }
 
   &__link {
@@ -122,7 +127,7 @@ body {
     list-style-type: none;
     border: 1px solid $dark-gray;
     border-top: none;
-    padding: 5px;
+    padding: 7px;
     color: $byui-blue;
     text-decoration: none;
   }
@@ -162,7 +167,6 @@ body {
 }
 
 .newsroom {
-
   &__article {
     border-top: 1px solid $light-gray;
     padding: 5px;
@@ -175,7 +179,6 @@ body {
       width: 150px;
       padding: 5px;
       grid-area: img;
-
     }
 
     &__date,
@@ -219,13 +222,20 @@ body {
 
 /* Desktop size */
 @media (min-width: 800px) {
-
   .resources,
   .information,
   .university-message,
   .calendar {
     width: 100%;
   }
+  
+  .site-banner {  
+    &__left {
+      a>span {
+        padding-bottom: 27px; // Large extends over header
+      }
+    }
+  }  
 
   main {
     display: grid;
@@ -249,6 +259,7 @@ body {
     }
   }
 
+  // Assign each section to a grid-area
   .information {
     grid-area: info;
   }
