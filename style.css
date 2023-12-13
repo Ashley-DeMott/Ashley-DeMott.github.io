@@ -13,6 +13,10 @@
 	/* Add variables for consistent margins */
 }
 
+abbr {
+	text-decoration: none;
+}
+
 * {
 	color: var(--secondaryColor);
 }
