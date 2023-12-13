@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* All Teal containers */
+.container {
+  height: 25vmin;
+  width: 25vmin;
+  background-color: teal;
+}
+
+/* All items in the boxes, the red circles */
+.container * {
+  height: 25%;
+  width: 25%;
+  background-color: darkred;
+  border-radius: 50%;
+}
+
+/* Box One */
+.container-one {
+  padding: 1vmin;
+}
+
+.orbiting-circle {
+  /* Animates the item, infinite time */
+  animation: orbit 3s linear infinite;
+}
+
+/* Travel within a square */
+@keyframes orbit {
+  0% { transform: translate(0%, 0%); }
+  5% { transform: translate(0%, 0%); }
+  25% { transform: translate(300%, 0%); }
+  30% { transform: translate(300%, 0%); }
+  50% { transform: translate(300%, 300%); }
+  55% { transform: translate(300%, 300%); }
+  75% { transform: translate(0%, 300%); }
+  80% { transform: translate(0%, 300%); }
+  100% { transform: translate(0%, 0%); }
+}
+
+/* Box Two */
+.container-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.morphing-circle {
+  /*transition: border-radius .5s ease, 
+			  background-color .5s ease, 
+			  transform .5s ease .5s*/
+  animation: morphing-circle-square 3s linear infinite;
+}
+
+/* Using transition and transform */
+.container-two:hover .morphing-circle {
+  border-radius: 0;
+  background-color: white;
+  transform: rotate(90deg);
+}
+
+@keyframes morphing-circle-square {
+  0% {
+    border-radius: 50%;
+  }
+
+  25% {
+    border-radius: 50%;
+    background-color: darkred;
+  }
+
+  50% {
+    border-radius: 0%;
+    background-color: white;
+    transform: rotate(0deg);
+  }
+
+  75% {
+    border-radius: 0%;
+    background-color: white;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    border-radius: 50%;
+    background-color: darkred;
+    transform: rotate(90deg);
+  }
+}
+
+/* Box Three */
+/*
+Create two semicircles
+
+Key Frames
+- Start with the semicircles next to eachother
+- Add a gap to separate the circles
+- Remove the gap so the circles go back to eachother
+- repeat
+
+*/
+
+.container-three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: split-circles 2s linear infinite;
+}
+
+.container-three * {
+  width: 1rem;
+  height: 2rem;
+}
+
+.left-circle {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.right-circle {
+  border-radius: 0 1rem 1rem 0;
+}
+
+@keyframes split-circles {
+  /* Pause together*/
+  5% { gap: -5px; }
+
+  10% { gap: 0px; }
+  20% { gap: 5px; }
+
+  /* Pause */
+  35% { gap: 15px; }
+  65% { gap: 15px; }
+
+  80% { gap: 5px; }
+  90% { gap: 0px; }
+
+  /* Back together */
+  95% { gap: -5px; }
+}
+
+/* Box Four */
+/*
+Start with a circle in the center of the box
+
+Keyframes
+- Start with the padding at 0px
+- Add padding to grow the circle (will grow to fit amount of padding added, % size)
+- Remove the padding to shrink the circle
+- repeat
+
+*/
+.container-four {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulsing-circle {
+20% {
+    width: 25%;
+    height: 25%;
+  }
+
+  30% {
+    width: 28%;
+    height: 28%;
+  }
+
+  45% {
+    width: 25%;
+    height: 25%;
+  }
+
+  60% {
+    width: 28%;
+    height: 28%;
+  }
+
+  80% {
+    width: 25%;
+    height: 25%;
+  }
+}
+
+.pulsing-circle {
+  animation: pulsing-circle 0.75s linear infinite;
+}
+
+/* When the window is too small, show boxes in a column*/
+@media (max-width: 950px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+}
