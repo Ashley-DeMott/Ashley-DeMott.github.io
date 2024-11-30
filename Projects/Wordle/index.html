@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wordle</title>
+  <meta name="description" content="Wordle">
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+<h1>Let's play Wordle!</h1>
+<div id="instructions">
+<p>Green means right letter in the right place, yellow means the letter exists in the word but in the wrong place, and red means the letter doesn't exist in the word.</p></div>
+
+<!-- TODO: Create green/yellow/red guide w/ example look -->
+<div id="example">
+<div class="letter correct"><div>
+<div class="letter wrong-location"><div>
+<div class="letter incorrect"><div>
+</div>
+</header>
+
+<main>
+<button onClick="restart()" id="restart">Restart</button>
+<button onClick="restartRandom()" id="restart-random">Restart Random</button>
+<div id="sovled-msg" style="Display: none">You guessed the word!</div> 
+<div id="failed-msg" style="Display: none">The word was _</div>
+
+<div id="tries"></div>
+<div id="wordle"></div>
+<button onClick="gradeInput()" id="guess">Guess!</button>
+</main>
+</body>
+<html>

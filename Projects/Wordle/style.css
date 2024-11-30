@@ -1,0 +1,87 @@
+:root {
+	--main-bg-color: #000000;
+	--grey: #818384;
+}
+
+header {
+	background-color: lightblue;
+	padding: 10px;
+	margin: -8px;
+}
+main {
+	background-color: grey;
+	padding: 10px;
+	margin: -8px;	
+}
+
+button {
+	width: 25px;
+	height: 25px;
+}
+
+input {
+	text-align: center;
+	border: 3px solid lightblue;
+}
+
+#restart {
+	width: 100px;
+}
+
+ #restart-random {
+	 width: 100px;
+	 height: 50px;
+ }
+
+#guess {
+	width: 100px;
+	background-color: lightgrey;
+	color: black;
+	border: none;
+}
+
+#guess.valid {
+	background-color: green;
+	color: white;
+}
+
+.try {
+	border: solid black 1px;
+	width: 300px;
+	height: 55px;
+	margin-bottom: 1px;
+	display: flex;
+	flex-direction: row;
+	background-color: lightblue;
+}
+
+.try > div {
+	border: solid black 1px;
+	text-align: center;
+	margin: auto;
+}
+
+.letter {
+	width: 50px;
+	height: 50px;
+	background-color: #CFCFCF;
+	margin: 1px;
+}
+
+.correct {
+	background-color: green;
+}
+
+.wrong-location {
+	background-color: yellow;
+}
+
+.incorrect {
+	background-color: red;
+}
+
+#example {
+	/* TODO: currently showing ontop of eachother? (even with flex)*/
+	display: none;
+	flex-direction: row;
+}

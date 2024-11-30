@@ -1,0 +1,58 @@
+#gameOver {
+	display: none;
+}
+
+header {
+	background-color: gray;
+	color: white;
+	padding: 10px;
+	margin: -10px -10px 10px;
+}
+
+
+#scores {
+	display: flex;
+}
+
+#scores > * {
+	margin: 10px;
+}
+
+div.popup {
+	border: solid black 1px;
+	padding: 5px;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 150px;
+}
+
+div.popup > h2 {
+	margin: 0;
+}
+
+div.popup > button {
+	width: 100px;
+	margin: 5px;
+}
+
+.board > button {
+	/* TODO: Share board size between css and js */
+	
+}
+
+.mine, .notMine {
+	width: 50px;
+	height: 50px;
+}
+
+/* TODO: disabled show grey, if also .selected show white/red */
+.mine:disabled {
+	background-color: red;
+}
+
+.notMine:disabled {
+	background-color: white;
+}

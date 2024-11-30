@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Minesweeper</title>
+  <meta name="description" content="Minesweeper">
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+<h1>Let's play Minesweeper!</h1>
+
+<div id="scores">
+<h3>High Score: <h3 id="scores__highest">0</h3></h3>
+<h3>Current Score: <h3 id="scores__current">0</h3></h3>
+</div>
+</header>
+
+<div id="board"></div>
+
+<div id="gameOver" class="popup">
+<h2>Game Over!</h2>
+<p class="popuptext">Aww dang it!</p>
+<button id="reset" onclick="reset()">Play Again</button>
+<button id="reveal" onclick="reveal()">Reveal Board</button>
+</div>
+
+</body>
+<html>
