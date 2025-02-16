@@ -9,11 +9,12 @@ let sovledMsg = document.getElementById("sovled-msg");
 let failedMsg = document.getElementById("failed-msg");
 
 // TODO: Add more words, probably from an actual dictionary
-let wordList5 = ["wordy", "treat", "horse", "house", "ready", "radio", "joker", "jaunt", "money", "sweet", "sweat", "swing", "feast", "three", "clear", "guess", "roast", "write", "model", "drawn", "mouse", "paint", "green", "wrong", "means", "braid", "reset", "start", "solve"];
-let wordList4 = ["four", "test", "hour", "tour", "rest", "more", "word"]
-let wordList3 = ["one", "two", "own", "fun", "run", "red"];
+// TODO: Store words of different lenghts in their own files. Could read pick a random line to read (or use tsv? depends on if whitespace is an issue)
+let wordList5 = ["wordy", "treat", "horse", "house", "ready", "radio", "joker", "jaunt", "money", "sweet", "sweat", "swing", "feast", "three", "clear", "guess", "roast", "write", "model", "drawn", "mouse", "paint", "green", "wrong", "means", "braid", "reset", "start", "solve", "raven", "birds", "cares"];
+let wordList4 = ["four", "test", "hour", "tour", "rest", "more", "word", "cave", "care", "bear", "bare", "tear", "year", "dude", "joke", "gold", "told"]
+let wordList3 = ["one", "two", "own", "fun", "run", "red", "ton", "con", "fox", "box", "ear", "net", "met", "jet", "pet", "vet", "get", "pun", "ode"];
 
-// A list of all the different lenght word lists
+// A list of all the different length word lists
 wordLists = [ wordList3, wordList4, wordList5 ];
 
 // The current word list
@@ -57,6 +58,7 @@ function createWordle() {
 	}
 }
 
+// TODO: Move to next box after a letter has been entered (basically treat as one large text box when it really is separate boxes)
 function autofocus() {
     /*// Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13 || this.value.length == 1) {
@@ -130,6 +132,7 @@ function validateInput() {
 	return valid;
 }
 
+// Add "valid" class to guessButton if the guess is in the dictionary
 function validateGuess() {
 	if(validateInput()) {
 		// Add valid as a class
@@ -150,7 +153,7 @@ function isGameOver() {
 function gradeInput() {
 	// If the game is not over,
 	if(!isGameOver()) {
-		// If the user submitted a valid word,
+	// If the user submitted a valid word,
 	if (validateInput()) {	
 		// Filling in the current try section,
 		currentTry = triesContainer.children[tryNum];		
