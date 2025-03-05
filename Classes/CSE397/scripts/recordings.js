@@ -43,12 +43,14 @@ const video_selector = document.getElementById("video_select");
 
 populateVideoSelection(video_selector);
 
+// Add video names as options
 function populateVideoSelection() {
     for(videoID in videoUrls) {
         createOption(videoID);
     }
 }
 
+// Create an option and add it to the video_selector dropdown
 function createOption(videoID) {
     const opt = document.createElement("option");
     opt.value = videoID;
