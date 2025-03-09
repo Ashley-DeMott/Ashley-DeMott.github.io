@@ -46,8 +46,6 @@ const video_player = document.getElementById("kaltura_player");
 const video_selector = document.getElementById("video_select");
 
 populateVideoSelection(video_selector);
-video_player.src = videoUrls[0].src; // Show the latest video
-
 
 // Add video names as options
 function populateVideoSelection() {
@@ -66,6 +64,8 @@ function createOption(videoID) {
 
 // Called when a different option is selected
 video_selector.onchange = updateVideo;
+
+video_player.src = videoUrls[0].src; // Show the latest video
 function updateVideo() {
     video_player.src = videoUrls[this.value].src;
 }
