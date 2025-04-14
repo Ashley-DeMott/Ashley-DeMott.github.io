@@ -11,6 +11,7 @@
     --accentColor2: rgb(215, 215, 215);
 	
 	/* Add variables for consistent margins */
+	--smallMargin: 5px;
 }
 
 abbr {
@@ -23,9 +24,11 @@ abbr {
 
 h1, h2 {
 	color: var(--accentColor);
+	margin: 0;
+	margin-top: var(--smallMargin);
 }
 
-/* TODO: Rewrite in SCSS */
+/* TODO: Rewrite in SCSS or at least using BEM */
 .WDD331, .projects{
 	background-color: lightgrey;
 	padding: 10px;
@@ -41,7 +44,7 @@ a:hover {
 	color: white;
 }
 
-.WDD331 a:hover {
+section a:hover {
 	color: var(--accentColor);
 }
 
@@ -67,6 +70,12 @@ header h1 {
 
 header {
 	margin-bottom: -10px;	
+}
+
+ul {
+	margin: 0;
+	margin-top: var(--smallMargin);
+	margin-bottom: var(--smallMargin);
 }
 
 footer {
