@@ -1,4 +1,5 @@
-/* TODO: Rewrite in SCSS or at least using BEM strategies*/
+/* Styling that applies to the projects page */
+
 :root {	
     /* Fonts */
     --mainFont: "Roboto";
@@ -21,16 +22,6 @@ abbr {
 
 * {
 	color: var(--secondaryColor);
-}
-
-h1, h2, h3 {
-	color: var(--accentColor);
-	margin: 0;
-	margin-top: var(--smallMargin);
-}
-
-h3 {
-    padding-left: 5px;
 }
 
 .WDD331, .projects{
@@ -62,42 +53,6 @@ section a:hover {
 
 .projects a:hover {
 	color: var(--accentColor);
-}
-
-
-/***** Header *****/
-
-header * {
-	color: var(--accentColor2);	
-	padding: 5px;
-}
-
-header h1 {
-	margin-bottom: -10px;
-}
-
-header {
-	margin-bottom: -10px;	
-}
-
-header, footer {
-	color: var(--accentColor2);	
-	background-color: var(--accentColor);
-	padding: 10px;
-		
-}
-
-/***** Footer *****/
-
-footer {
-	display: grid;
-	grid-auto-flow: column;
-	justify-content: center;
-	margin-top: -10px;
-}
-
-footer a {
-	color: var(--accentColor2);
 }
 
 

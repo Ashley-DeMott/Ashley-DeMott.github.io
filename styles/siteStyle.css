@@ -1,0 +1,175 @@
+/* Styling that applies to all pages */
+:root {
+    /* Variables */
+    /* Fonts */
+    --mainFont: "Roboto";
+    --headerFont: "Great Vibes";
+
+    /* Colors */
+    /* TODO: Update color palette */
+    --primaryColor: white;
+    --secondaryColor: black;
+    --accentColor: rgb(110, 45, 175);
+    --accentColor2: rgb(215, 215, 215);
+
+    /* Add variables for consistent margins and padding */
+    --smallMargin: 5px;
+
+    --lineThickness: 4px;
+    --headerHeight: 125px;
+    --headerPadding: 5px;
+
+    --navWidth: 25%;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: block;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+/* TODO: Redo styling so it folows BEM, least specific to most specific element styling */
+
+h2, h3 {
+	color: var(--accentColor);
+	margin: 0;
+	margin-top: var(--smallMargin);
+}
+
+h3 {
+    padding-left: 5px;
+}
+
+
+/***** Navigation *****/
+
+#nav__sidebar {
+    position: fixed;
+    height: 100%;
+    width: var(--navWidth);
+    z-index: 1;
+
+    /* No margin or padding, but move on top of header (take into account padding of header and line thickness)*/
+    margin: 0;
+    padding: 0;
+    margin-top: calc((-1 * (var(--headerHeight) + var(--lineThickness))) + 2 * var(--headerPadding));
+
+    border-right: 4px solid black;
+    background-color: var(--accentColor);
+    overflow-x: hidden;
+
+    display: none;
+}
+/* TODO: width of nav --> 100% if mobile/small view*/
+
+main.navShowing, footer.navShowing {
+    /* TODO: Add an animation/transition to smoothly move navbar in from the left (grow nav's width, add margin to main and footer)*/
+    margin-left: var(--navWidth);
+}
+
+#nav__show {
+    height: calc(var(--headerHeight) / 2);
+    width: calc(var(--headerHeight) / 2);;
+    color: var(--secondaryColor);
+}
+
+#nav__profile {
+    background-color: var(--accentColor2);
+    margin: 0px;
+    padding: var(--smallMargin);
+    width: calc(100% - (2 * var(--smallMargin)));
+    height: calc(var(--headerHeight) - (2 * var(--smallMargin)));
+}
+
+/* Border Lines */
+#nav__profile, header {
+    /* Goal of this lining up between header and nav sidebar*/
+    border-bottom: var(--lineThickness) solid black;
+}
+
+footer  {
+    border-top: var(--lineThickness) solid black;
+}
+
+#nav__pages {
+    background-color: var(--accentColor);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#nav__pages > li {
+    width: 100%;
+    padding: 0;
+    height: 2em;
+    list-style-type: none;
+    border-bottom: 4px solid black;
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+#nav__pages > li > a:hover {
+    background-color: var(--accentColor2);
+    color: var(--secondaryColor);
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+#nav__pages > li > a {
+    display: block;
+    padding: var(--smallMargin);
+    margin: 0;
+    width: calc(100% - (2 * var(--smallMargin)));
+    height: 100%;
+    text-decoration: none;
+    color: var(--primaryColor)
+}
+
+/***** Header *****/
+
+header {
+    height: calc(var(--headerHeight) - (4 * var(--smallMargin)));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header * {
+    color: var(--accentColor2);
+    padding: var(--headerPadding);
+}
+
+header h1 {
+    margin-bottom: -10px;
+}
+
+header {
+    margin-bottom: -10px;
+}
+
+header,
+footer {
+    color: var(--accentColor2);
+    background-color: var(--accentColor);
+    padding: calc(2 * var(--smallMargin));
+
+}
+
+/***** Footer *****/
+
+footer {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+footer a {
+    color: var(--accentColor2);
+}
