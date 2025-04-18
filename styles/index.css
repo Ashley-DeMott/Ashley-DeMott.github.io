@@ -1,1 +1,30 @@
-/* Styling for the home page */
+/* Styling for the "Home" page */
+
+#pageTitle {
+    padding: 0;
+}
+
+#title {
+    font-size: 1em;
+    margin-top: 0;
+    font-style: italic;
+}
+
+section {
+    padding-bottom: 10px;
+
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    padding-left: 22px;
+}
+
+#link {
+    color: var(--onBackground);
+}
+
+#link:hover {
+    color: var(--onBackground);
+}

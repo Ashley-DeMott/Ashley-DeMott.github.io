@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ashley DeMott || Home Page</title>
+    <title>Ashley DeMott || Projects</title>
     <meta name="description" content="Home page for Ashley DeMott's web-based projects">
     <link rel="stylesheet" href="styles/siteStyle.css" />
     <link rel="stylesheet" href="styles/projectsList.css" />
@@ -13,45 +13,95 @@
 
 <body>
     <header id="header">
-        <h1>Projects</h1>
+        <h1 id="pageTitle">Projects</h1>
     </header>
     <nav id="nav__sidebar"></nav>
     <main id="main">
-        <!-- TODO: Add page sections - About Me, Project, etc -->
         <!-- TODO: Redo page to highlight additional coding projects (Python, C++, software design, etc), move these to CSS projects -->
-        <section class="WDD331">
-            <h2 class="WDD331__header">WDD331 Projects</h2>
-            <ul class="WDD331__list">
-                <li>Kids Read <a href="WDD331/Week1/Kids Read for Fun _ Home.html">(CSS)</a> <a
-                        href="WDD331/Week3/Kids Read for Fun _ Home.html">(SCSS)</a></li>
-                <li><a href="WDD331/Week 6/index.html">Flexbox Example</a></li>
-                <li><a href="WDD331/Gradients/gradients.html">CSS Gradients</a></li>
-                <li><a href="WDD331/Animations/Week5.html">Animations</a></li>
-                <li><a href="WDD331/CodepenRecreation/test.html">Codepen Recreation</a></li>
-                <li><a href="WDD331/TacoSite/test.html">Taco Site</a> - From a Wes Bos tutorial</li>
-                <li><a href="WDD331/byui-home/home.html">BYU-I Home Menu April 2023</a></li>
-                <li><a href="WDD331/Zen Garden/index.html">Zen Garden</a></li>
-            </ul>
+        <section id="published" class="projects hide">
+            <h2>Mobile Application</h2>
+            <div>
+                <h3>Project Name [In progress]</h3>
+                <u1>
+                    <li><a href="">GitHub</a></li>
+                    <li><a href="">Google Play Store</a></li>
+                    <li><a href="">Apple App Store</a></li>
+                </u1>
+            </div>
+        </section>
+        <!-- Hide this section for now, add a way to view a video/.exe in browser. Could make this a sub section of Projects page? -->
+        <section id="demos" class="projects hide">
+            <h2>Demos</h2>
+            <div class="demo">
+                <h3>Project Name</h3>
+                <p>Description</p>
+                <!-- Image/video/in browser demo-->
+            </div>
+            <div class="demo">
+                <h3>Project Name</h3>
+                <p>Description</p>
+                <!-- Image/video/in browser demo-->
+            </div>
         </section>
         <section class="projects">
-            <h2>Projects</h2>
-            <h3 class="projects__header">CSS Projects</h3>
-            <ul class="projects__list">
-                <!-- CSS page recreations would go here -->
-                <li>TBD</li>
-            </ul>
-            <h3 class="projects__header">JS Projects</h3>
-            <ul class="projects__list">
-                <li><a href="Projects/whack-a-mole/index.html">Whack A Mole</a></li>
-                <li><a href="Projects/Minesweeper/index.html">Minesweeper</a></li>
-                <li><a href="Projects/Wordle/index.html">Wordle</a></li>
-            </ul>
+            <h2>Projects by Programming Language</h2>
+            <div>
+                <h3 id="projects__header">CSS Projects</h3>
+                <ul id="projects__list">
+                    <!-- CSS page recreations would go here -->
+                    <li>TBD</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="projects__header">JS Projects</h3>
+                <ul class="projects__list">
+                    <li><a href="Projects/whack-a-mole/index.html">Whack A Mole</a></li>
+                    <li><a href="Projects/Minesweeper/index.html">Minesweeper</a></li>
+                    <li><a href="Projects/Wordle/index.html">Wordle</a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="BYUI" class="projects">
+            <h2>Class Projects</h2>
+            <div id="WDD331R" class="course">
+                <h3 class="course__name">WDD331R - Advanced CSS</h3>
+                <ul class="course__projectList">
+                    <li>Kids Read <a href="WDD331/Week1/Kids Read for Fun _ Home.html">(CSS)</a> <a
+                            href="WDD331/Week3/Kids Read for Fun _ Home.html">(SCSS)</a></li>
+                    <li><a href="WDD331/Week 6/index.html">Flexbox Example</a></li>
+                    <li><a href="WDD331/Gradients/gradients.html">CSS Gradients</a></li>
+                    <li><a href="WDD331/Animations/Week5.html">Animations</a></li>
+                    <li><a href="WDD331/CodepenRecreation/test.html">Codepen Recreation</a></li>
+                    <li><a href="WDD331/TacoSite/test.html">Taco Site</a> - From a Wes Bos tutorial</li>
+                    <li><a href="WDD331/byui-home/home.html">BYU-I Home Menu April 2023</a></li>
+                    <li><a href="WDD331/Zen Garden/index.html">Zen Garden</a></li>
+                </ul>
+            </div>
+            <div id="CSE232" class="course">
+                <h3 class="course__name">CSE230 - Encapsulation Design</h3>
+                <ul class="course__projectList">
+                    <li><a href="https://github.com/Ashley-DeMott/HelloWorld">Hello World</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/Apollo11Simulation">Lunar Lander</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/ArtilleryPrototype">Howitzer</a></li>
+                </ul>
+            </div>
+            <div id="CSE310">
+                <h3 class="course__name">CSE 310 - Applied Programming</h3>
+                <p>During this class, students were challenged to learn new programming languages and programming
+                    concepts and create a project using the skills they accquired.</p>
+                <ul class="course__projectList">
+                    <li><a href="https://github.com/Ashley-DeMott/JavaScriptAPI">Weather Forecast API</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/PandasDataAnalysis">Data Analysis with Pandas</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/YahtzeeRust">Yahtzee - Rust</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/Godot-Idle">Godot Test Game</a></li>
+                    <li><a href="https://github.com/Ashley-DeMott/KotlinBoardGame"></a>Board Game - Kotlin</li>
+                    <li><a href="https://github.com/Ashley-DeMott/RoomGame"></a>Board Game 2 - Java</li>
+                    <li><a href="https://github.com/Ashley-DeMott/KanjiFlashcardApp">Japanese Flashcard App</a></li>
+                </ul>
+            </div>
         </section>
     </main>
-    <footer id="footer">
-        <!-- Link to my Github page -->
-        Ashley DeMott | Phoenix, Arizona |&nbsp<a href="https://github.com/Ashley-DeMott">GitHub</a></div>
-    </footer>
+    <footer id="footer"></footer>
     <script src="scripts/site.js"></script>
     <script src="scripts/projectsList.js"></script>
 </body>

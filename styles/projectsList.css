@@ -1,31 +1,7 @@
-/* Styling that applies to the projects page */
+/* Styling for the "Projects" page */
 
-:root {	
-    /* Fonts */
-    --mainFont: "Roboto";
-    --headerFont: "Great Vibes";
-
-	/* Colors */
-    /* TODO: Update color palette */
-    --primaryColor: white;
-    --secondaryColor: black;
-    --accentColor: rgb(110, 45, 175);
-    --accentColor2: rgb(215, 215, 215);
-	
-	/* Add variables for consistent margins and padding */
-	--smallMargin: 5px;
-}
-
-abbr {
-	text-decoration: none;
-}
-
-* {
-	color: var(--secondaryColor);
-}
-
-.WDD331, .projects{
-	background-color: lightgrey;
+.projects {
+	background-color: var(--accentGrey);
 	padding: 10px;
 	margin: 10px 5px;
 }
@@ -36,35 +12,16 @@ ul {
 	margin-bottom: var(--smallMargin);
 }
 
-/***** Links *****/
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: white;
-}
-
-section a:hover {
+.projects a:hover{
 	color: var(--accentColor);
 }
 
-.projects a:hover {
-	color: var(--accentColor);
+h3 {
+    padding-left: 10px;
 }
 
-
-
-/***** Media Queries *****/
-/* ToDo: Add responsiveness */
-/* When the screen is a 'medium' size, 768px to 1024px*/
-@media (min-width: 768px) {
-
-}
-
-/* When the screen is a 'large' size, 1024px or larger*/
-@media (min-width: 1024px) {
-
+p {
+    padding: 0;
+    margin: 0;
+    padding-left: 22px;
 }

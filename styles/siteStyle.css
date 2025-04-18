@@ -1,53 +1,84 @@
 /* Styling that applies to all pages */
+/* TODO: Redo styling so it folows BEM, least specific to most specific element styling */
+
+/* Variables */
 :root {
-    /* Variables */
     /* Fonts */
     --mainFont: "Roboto";
     --headerFont: "Great Vibes";
+    --backupFont: "Times New Roman";
 
     /* Colors */
     /* TODO: Update color palette */
+    /* TODO: Could add a light/dark mode? (see KMM project)*/
     --primaryColor: white;
     --secondaryColor: black;
     --accentColor: rgb(110, 45, 175);
-    --accentColor2: rgb(215, 215, 215);
+    --accentGrey: rgb(215, 215, 215);
+    --onBcakground: black;
 
     /* Add variables for consistent margins and padding */
     --smallMargin: 5px;
 
+    /* Sizing for nav and header */
     --lineThickness: 4px;
-    --headerHeight: 125px;
+    --headerHeight: 100px;
     --headerPadding: 5px;
 
     --navWidth: 25%;
 }
 
+abbr {
+	text-decoration: none;
+}
+
+/* Remove extra padding/margins*/
 html, body {
     padding: 0;
     margin: 0;
 }
 
+/* Add space between the header and main sections */
 main {
     display: block;
     margin-top: 10px;
     padding-left: 10px;
 }
 
-/* TODO: Redo styling so it folows BEM, least specific to most specific element styling */
+/* Set the coolor for all text */
+* {
+	color: var(--secondaryColor);
+}
+
+/* Hide items */
+.hide {
+    display: none;
+}
+
+/***** Headers *****/
+h1, h2, h3 {
+    font-family: var(--headerFont), var(--backupFont);
+}
 
 h2, h3 {
-	color: var(--accentColor);
+	color: var(--accentColor), var(--backupFont);
 	margin: 0;
 	margin-top: var(--smallMargin);
 }
 
-h3 {
-    padding-left: 5px;
+/***** Links *****/
+a {
+	text-decoration: none;
+}
+
+/* Add underline when hovered over */
+a:hover {
+	text-decoration: underline;
+	color: white;
 }
 
 
 /***** Navigation *****/
-
 #nav__sidebar {
     position: fixed;
     height: 100%;
@@ -57,9 +88,9 @@ h3 {
     /* No margin or padding, but move on top of header (take into account padding of header and line thickness)*/
     margin: 0;
     padding: 0;
-    margin-top: calc((-1 * (var(--headerHeight) + var(--lineThickness))) + 2 * var(--headerPadding));
+    margin-top: calc((-1 * (var(--headerHeight) + var(--lineThickness))));
 
-    border-right: 4px solid black;
+    border-right: var(--lineThickness) solid black;
     background-color: var(--accentColor);
     overflow-x: hidden;
 
@@ -79,11 +110,32 @@ main.navShowing, footer.navShowing {
 }
 
 #nav__profile {
-    background-color: var(--accentColor2);
+    background-color: var(--accentGrey);
     margin: 0px;
     padding: var(--smallMargin);
     width: calc(100% - (2 * var(--smallMargin)));
     height: calc(var(--headerHeight) - (2 * var(--smallMargin)));
+    padding-bottom: var(--smallMargin);
+}
+
+#nav__hide {
+    margin: var(--smallMargin);
+    margin-top: 0;
+    padding-top: var(--smallMargin);
+    padding-bottom: var(--smallMargin);
+}
+
+#nav__h1 {
+    margin: 0;
+    padding-left: var(--smallMargin);
+    font-size: 1.25em;
+}
+
+#nav__h2 {
+    font-size: 1em;
+    margin-top: 0;
+    padding-left: var(--smallMargin);
+    font-style: italic;
 }
 
 /* Border Lines */
@@ -101,35 +153,36 @@ footer  {
     width: 100%;
     margin: 0;
     padding: 0;
+    margin-top: -2px; /* TODO: Temp fix to remove extra space*/
 }
 
 #nav__pages > li {
     width: 100%;
-    padding: 0;
     height: 2em;
-    list-style-type: none;
-    border-bottom: 4px solid black;
+    padding: 0;
     margin: 0;
+    list-style-type: none;
     margin-bottom: 0px;
 }
 
 #nav__pages > li > a:hover {
-    background-color: var(--accentColor2);
+    background-color: var(--accentGrey);
     color: var(--secondaryColor);
     font-weight: bold;
-    margin-bottom: 0px;
-    padding: 0;
+    margin-bottom: 5px;
 }
 
 #nav__pages > li > a {
     display: block;
     padding: var(--smallMargin);
-    margin: 0;
-    width: calc(100% - (2 * var(--smallMargin)));
-    height: 100%;
+    width: 100%;
     text-decoration: none;
-    color: var(--primaryColor)
+    color: var(--primaryColor);
+    margin-top: calc(var(--lineThickness) / 2);
+    margin-bottom: calc(var(--lineThickness) / 2);
+    border-bottom: var(--lineThickness) solid black;
 }
+
 
 /***** Header *****/
 
@@ -141,7 +194,7 @@ header {
 }
 
 header * {
-    color: var(--accentColor2);
+    color: var(--accentGrey);
     padding: var(--headerPadding);
 }
 
@@ -150,16 +203,21 @@ header h1 {
 }
 
 header {
-    margin-bottom: -10px;
+    margin-bottom: 0px;
 }
 
 header,
 footer {
-    color: var(--accentColor2);
+    color: var(--accentGrey);
     background-color: var(--accentColor);
     padding: calc(2 * var(--smallMargin));
 
 }
+
+#pageTitle {
+    margin-right: 10px;
+}
+
 
 /***** Footer *****/
 
@@ -167,9 +225,22 @@ footer {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
-    margin-top: -10px;
+    margin-top: 0px;
 }
 
 footer a {
-    color: var(--accentColor2);
+    color: var(--accentGrey);
+}
+
+
+/***** Media Queries *****/
+/* TODO: Optimize the site for different screen sizes */
+/* When the screen is a 'medium' size, 768px to 1024px*/
+@media (min-width: 768px) {
+
+}
+
+/* When the screen is a 'large' size, 1024px or larger*/
+@media (min-width: 1024px) {
+
 }

@@ -35,11 +35,12 @@ function createNav() {
     navProfile.appendChild(navHide);
 
     // Create items within the profile section
+    let navH1 = document.createElement("h1");
+    navH1.id = "nav__h1";
+    navH1.innerHTML = "Ashley DeMott";
     let navH2 = document.createElement("h2");
-    navH2.innerHTML = "Ashley DeMott";
-    let navP = document.createElement("p");
-    navP.style.marginTop = 0;
-    navP.innerHTML = "Software Engineer";
+    navH2.id = "nav__h2";
+    navH2.innerHTML = "Software Engineer";
 
     // Create the list of navigation pages
     let navPages = document.createElement("ul");
@@ -59,8 +60,8 @@ function createNav() {
 });
 
     // Attach all elements
+    navProfile.appendChild(navH1);
     navProfile.appendChild(navH2);
-    navProfile.appendChild(navP);
     navBar.appendChild(navProfile);
     navBar.appendChild(navPages);
 }
@@ -82,4 +83,33 @@ console.log("toggle: " + show);
         main.classList.add("navShowing");
         footer.classList.add("navShowing");
     }
+}
+
+/***** Header *****/
+// Create a header for the page given its name
+function createHeader(pageName) {
+    let pageTite = document.createElement("h1");
+    pageTitle.id = "pageTitle";
+    pageTite.innerHTML = pageName;
+
+    header.appendChild(pageTite);
+}
+
+/***** Footer *****/
+// Create all elements within the footer
+createFooter();
+function createFooter() {
+    let location = "Phoenix, Arizona";
+    footer.innerHTML = `&nbsp| ${location} |&nbsp`;
+
+    let linkedInLink = document.createElement("a");
+    linkedInLink.href = "https://www.linkedin.com/in/ashley-demott/";
+    linkedInLink.innerHTML = "Ashley DeMott";
+
+    let gitHubLink = document.createElement("a");
+    gitHubLink.href = "https://github.com/Ashley-DeMott";
+    gitHubLink.innerHTML = "GitHub";
+
+    footer.prepend(linkedInLink);
+    footer.appendChild(gitHubLink);
 }
