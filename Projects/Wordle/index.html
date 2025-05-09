@@ -5,7 +5,7 @@
   <title>Wordle</title>
   <meta name="description" content="Wordle">
   <link rel="stylesheet" href="style.css" />
-  <script src="main.js" defer></script>
+  <script type="module" src="main.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -23,14 +23,15 @@
 </header>
 
 <main>
-<button onClick="restart()" id="restart">Restart</button>
-<button onClick="restartRandom()" id="restart-random">Restart Random</button>
+<button id="restart">Restart</button>
+<button id="restart-random">Restart Random</button>
 <div id="sovled-msg" style="Display: none">You guessed the word!</div> 
-<div id="failed-msg" style="Display: none">The word was _</div>
+<div id="invalid-msg" style="Display: none"><span id="guessWord">Your guess</span> is not in the word list!</div>
+<div id="failed-msg" style="Display: none">The word was <span id="revealWord"></span></div>
 
 <div id="tries"></div>
 <div id="wordle"></div>
-<button onClick="gradeInput()" id="guess">Guess!</button>
+<button id="guess">Guess!</button>
 </main>
 </body>
 <html>
