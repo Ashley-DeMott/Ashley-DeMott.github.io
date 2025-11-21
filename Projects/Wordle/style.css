@@ -68,12 +68,13 @@ input {
 	margin: 1px;
 }
 
-.correct {
-	background-color: green;
-}
 
 .wrong-location {
 	background-color: yellow;
+}
+
+.correct {
+	background-color: green;
 }
 
 .incorrect {
@@ -84,4 +85,40 @@ input {
 	/* TODO: currently showing ontop of eachother? (even with flex)*/
 	display: none;
 	flex-direction: row;
+}
+
+
+/* NYT Pop-in animation*/
+.letter[data-animation='pop'] {
+  animation-name: PopIn;
+  animation-duration: 100ms;
+}
+
+@keyframes PopIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+
+/** KEYBOARD **/
+/* Overall section */
+#keyboard {
+
+}
+
+/* Each row of the keyboard */
+[id^="keyboard-row-"] {
+    flex-direction: row;
+}
+
+/* Each letter on the keyboard */
+[id^="keyboard-letter-"] {
+    /* TODO: Size, font, etc */
 }
