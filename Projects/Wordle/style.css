@@ -1,19 +1,9 @@
+/* Variables specific to Wordle page */
 :root {
-    --color-background: #CFCFCF;
-    --color-primary: lightgrey;
-	--color-secondary: #818384;
-    --color-accent: rgb(211, 151, 252);
-
-    --color-text: black;
-
     --color-correct: rgb(156, 255, 156);
     --color-wrong-location: rgb(255, 255, 141);
     --color-incorrect: rgb(255, 106, 106);
-
-
     --width-board: 300px;
-    
-    --margin-small: 5px;
 }
 
 body {

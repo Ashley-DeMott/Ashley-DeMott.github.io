@@ -1,0 +1,37 @@
+/* Site styling shared across minigames */
+
+:root {
+    /* Variables shared across minigames */
+    /* Colors */
+    --color-background: #CFCFCF;
+    --color-primary: lightgrey;
+	--color-secondary: #818384;
+    --color-accent: rgb(211, 151, 252);
+
+    --color-text: black;
+
+    /* Sizes */
+    --margin-small: 5px;
+    --padding-small : 10px;
+}
+
+body {
+	background-color: var(--color-secondary);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0; /* Margin has affects outside the body, use padding instead*/
+}
+
+header {
+	background-color: var(--color-accent);
+	padding: var(--padding-small);
+}
+
+main {
+	background-color: var(--color-secondary);
+	padding: var(--padding-small);
+}
+

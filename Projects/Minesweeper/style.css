@@ -1,14 +1,11 @@
+/* Variables specific to Minesweeper page */
+:root {
+
+}
+
 #gameOver {
 	display: none;
 }
-
-header {
-	background-color: gray;
-	color: white;
-	padding: 10px;
-	margin: -10px -10px 10px;
-}
-
 
 #scores {
 	display: flex;
