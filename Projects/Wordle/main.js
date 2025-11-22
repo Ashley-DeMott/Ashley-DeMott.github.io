@@ -2,12 +2,12 @@
 import * as words from "./words.js"
 
 // TODO [FEATURE]: Various features to improve gameplay
-// - Add 'del' key to virtual keyboard
-// - Add green/yellow/red guide
+// - Update green/yellow/red guide's CSS
 // - Beter CSS and animations like NYT Wordle
-// - Animate keyboard based on user input?
 // - Have messages be in an actual popup/alert instead of above the board
 // - Create mobile and desktop views
+// - If !gameOver(), have alert/prompt to confirm reset of the game
+// - Add user options with boolean math. Ex: removeLetter(true * (userSettings.moveOnRemove))
 
 // TODO [FEATURE]: Different modes using similar layout and word list
 // - Unlimited guesses (update gameOver function (tryNum >= tries && !unlimitedGuessMode))
@@ -42,11 +42,12 @@ let invalidMsg = document.getElementById("invalid-msg");
 
 // The HTML element that holds all keyboard elements
 let keyboard = document.getElementById("keyboard");
+let delKey;
 
 // The current word list
 let wordList = wordLists["5"];
 
-let tries = 5; 			// Max number of tries for the game
+let tries = 6; 			// Max number of tries for the game
 let tryNum = 0; 		// The number of tries the user has used
 let solved = false; 	// If the Wordle has been solved
 let word = ""; 			// The randomly selected word
@@ -63,7 +64,6 @@ createWordle();
 // Create the layout for the keyboard
 organizeKeyboard();
 
-
 // Create the layout for the game of Wordle
 function createWordle() {
     // Select a random word from the current wordlist
@@ -77,6 +77,7 @@ function createWordle() {
         newLetter.classList.add("letter");
         newLetter.id = "letter" + i;
         newLetter.maxLength = 1;
+        newLetter.style.caretColor = "transparent";
 
         // Check if the current word can be submitted
         newLetter.addEventListener("input", validateGuess);
@@ -85,7 +86,11 @@ function createWordle() {
         newLetter.addEventListener("click", () => guessBoxFocus(i));
 
         // When a key is pressed, determine what to do with the input
-        newLetter.addEventListener("keyup", autofocus);
+        newLetter.addEventListener("keydown", handleInput);
+
+        // When an animation ends, clear animations
+        newLetter.addEventListener('animationend', () => {
+        newLetter.style.animation = 'none'; });
 
         // Add to DOM
         wordleContainer.append(newLetter);
@@ -112,7 +117,7 @@ function organizeKeyboard(rows = {
 
     // For each row,
     for (let row in rows) {
-        // TODO [CELANUP]: Can rewrite as a function (and call here) to allow letters to be reorganized into different sections throughout the game. Only create a section if it doesn't exist [In the case of showing letters hangman style (correct | unguessed | incorrect)].
+        // TODO [CLEANUP]: Can rewrite as a function (and call here) to allow letters to be reorganized into different sections throughout the game. Only create a section if it doesn't exist [In the case of showing letters hangman style (correct | unguessed | incorrect)].
         // Create a row element
         let newRow = document.createElement("div");
         newRow.id = rowIDPrefix + row;
@@ -123,8 +128,22 @@ function organizeKeyboard(rows = {
             newLetter.id = (letterIDPrefix + rows[row][letter]);
             newLetter.addEventListener("click", () => addLetter(rows[row][letter]));
             newLetter.innerHTML = rows[row][letter];
+            newLetter.addEventListener('animationend', () => {
+                newLetter.style.animation = 'none'; });
 
             newRow.append(newLetter);
+        }
+
+        if(row == "3") {
+            delKey = document.createElement("button");
+            delKey.addEventListener("click", () => removeLetter(true));
+            delKey.innerHTML = "del";
+            delKey.id = "delKey";
+
+            delKey.addEventListener('animationend', () => {
+                delKey.style.animation = 'none'; });
+            
+            newRow.append(delKey);
         }
 
         keyboard.append(newRow);
@@ -141,6 +160,10 @@ function guessBoxFocus(index) {
         // Focus on the specified letter box
         let focusElm = document.getElementById("letter" + index);
         focusElm.focus();
+
+        // TESTING: Snappy animation to show focus
+        // BUG: Because of event, doesn't reaapply?
+        focusElm.style.animation = "PopIn .25s linear alternate";
 
         // Move the cursor to the end of the box
         focusElm.setSelectionRange(1, 1);
@@ -162,7 +185,7 @@ function guessBoxFocus(index) {
     }
 
     // DEBUG
-    console.log("focus " + currentLetter);
+    //console.log("focus " + currentLetter);
 }
 
 // Clear the value of a guess box using the given index
@@ -174,7 +197,7 @@ function clearGuessBox(index) {
 
 // Add letter to the current guess box
 function addLetter(letter) {
-    console.log("adding letter " + letter + " to slot " + currentLetter);
+    //console.log("adding letter " + letter + " to slot " + currentLetter);
 
     // If within the guess box area,
     if(currentLetter < wordSize && currentLetter >= 0) {
@@ -188,6 +211,11 @@ function addLetter(letter) {
             currentLetter = -1
         }
 
+        currentElm.style.animation = "jump .25s linear";
+
+        let keyboardKey = document.getElementById("keyboard-letter-" + letter);
+        keyboardKey.style.animation = "pulse .5s linear";
+
         // Focus on next element
         guessBoxFocus(currentLetter);
     }
@@ -197,30 +225,44 @@ function addLetter(letter) {
     }
 }
 
-// Handles movement between guess boxes and input validation
-function autofocus(event) {
-    // Get the key that was pressed
-    let key = event.key
-
-    // If the user wants to move back a box,
-    if (key == "ArrowLeft" || key == "Backspace") {
-        if (currentLetter > 0 && currentLetter < wordSize) {
-            // Move to previous box
-            guessBoxFocus(currentLetter -1);
-        }
-    }
-    else if (key == "Tab") {
-        // Do nothing, use normal flow
-    }
-    // If the user pressed an alphabet letter,
-    else if(/^[a-z]$/i.test(key)) {
-        addLetter(key.toLowerCase())
-    }
-    else {
-        // Invalid char
-        // Clear letter in input
-        // TEMP [BUG]: Invalid input still appears briefly, is there a way to disable input that isn't valid?
+// Remove the current value in the guess box and navigate backwards
+function removeLetter(moveBackwards) {
+    // If within the guess box range,
+    if(currentLetter >= 0 && currentLetter < wordSize) {
+        delKey.style.animation = "pulse .5s linear";
         clearGuessBox(currentLetter);
+    }
+
+    // Move backwards if not already at 0 (and moving backwards allowed)
+    if(moveBackwards && currentLetter > 0) {   
+        guessBoxFocus(currentLetter -1);
+    }
+
+}
+
+// Handles movement between guess boxes and input validation
+function handleInput(event) {
+    // Handle event's key (ignoring default)
+    event.preventDefault();
+    switch(event.key) {
+        // Deletion
+        case "Backspace": removeLetter(true); break;
+        case "Delete": removeLetter(false); break;
+
+        // Movement
+        case "ArrowLeft": if(currentLetter > 0) { guessBoxFocus(currentLetter -1); } break;
+        case "Tab":
+        case "ArrowRight": guessBoxFocus(currentLetter +1); break;
+
+        // Other keys
+        default:
+            let key = event.key
+
+            // Any keys a-z can be added to the guess area
+            if(/^[a-z]$/i.test(key)) {
+                addLetter(key.toLowerCase())
+            }
+            break;
     }
 }
 
@@ -376,7 +418,10 @@ function gradeInput() {
                     }
                 }
                 // Add the grade as a class to display the appropriate CSS
+                // Add class to animate each guess
                 newLetter.classList.add(grade);
+
+                newLetter.style.animation = "spin-in .75s linear";
 
                 // Update the keyboard
                 // Disable any letters that aren't in the word
@@ -454,10 +499,19 @@ function toggleShow(item, visible) {
 function buttonSetup() {
     // Allows the user to submit a guess
     guessButton.addEventListener("click", gradeInput);
-    guessButton.addEventListener("keyup", function (event) {
-        let key = event.key
-        if (key == "ArrowLeft" || key == "Backspace") {
-            guessBoxFocus(wordSize -1);
+    guessButton.addEventListener("keydown", function (event) {
+        // Handle event's key (ignoring default)
+        event.preventDefault();
+        switch(event.key) {
+            case "ArrowLeft":
+            case "Backspace":
+                guessBoxFocus(wordSize -1);
+                break;
+            case "Enter":
+                gradeInput();
+                break;
+            default:
+                break;
         }
     })
 
