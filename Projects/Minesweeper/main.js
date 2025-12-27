@@ -1,3 +1,12 @@
+/* TODO:
+- [GAMERULE]: First click is always safe (aka, board generates after user clicks, based around user's click location)
+-   The 8 squares around the user will not have mines (aka, clicked spot will be surroundingMines = 0)
+-   "Flood-fill" to reveal any 0s and their neighbors (to see counts for hidden areas)
+- [FEATURE]: Have a mines:total squares ratio to allow for multiple board sizes
+- [FEATURE]: Better mine generation to ensure guessing isn't needed
+*/
+
+
 // To display the user's best score
 let highScore = document.getElementById("scores__highest");
 // To display the user's current score
@@ -38,21 +47,7 @@ function createBoard() {
 		newButton.id = "cell-" + ((i * boardSize) + j)
 		
 		// On click, the button is disabled and either adds points or results in a game over
-		newButton.onclick = function() {
-			if(!isGameOver) {
-			this.disabled = true;
-			
-			// GameOver or continue
-			if (this.classList.contains("mine")) {
-				this.innerHTML = "*";				
-				gameOver();
-			}
-			else {
-				this.innerHTML = countMines(this);
-				addPoints();
-			}
-			}
-		}
+		newButton.addEventListener("click", buttonFun);
 		
 		// Determine if it is a mine or not
 		let isMine = (Math.floor(Math.random() * (max - min)) + min) < (max - min) * mineRarity;
@@ -70,6 +65,28 @@ function createBoard() {
 		boardContainer.appendChild(newRow);
 	
 	}
+}
+
+// Called when a cell is pressed
+function buttonFun(event) {
+    console.log("Button pressed!")
+    if(!isGameOver) {
+        let button = event.target
+        button.disabled = true;
+
+        // GameOver or continue
+        if (button.classList.contains("mine")) {
+            console.log("Gameover!");
+            button.innerHTML = "*";
+            gameOver();
+        }
+        else {
+            button.innerHTML = countMines(button);
+            addPoints();
+        }
+        
+        console.log("Pressed " + button.id + ". Game is " + isGameOver ? "" : "not " + "over.");
+    }
 }
 
 function countMines(el) {
@@ -146,9 +163,9 @@ function countMines(el) {
 // Give the user points for not hitting a mine
 function addPoints() {
 	if(!isGameOver) {
-	let points = Number(currentScore.innerHTML)
-	points += 5;
-	currentScore.innerHTML = points;
+        let points = Number(currentScore.innerHTML)
+        points += 5;
+        currentScore.innerHTML = points;
 	}
 }
 
@@ -187,9 +204,13 @@ function reset() {
 	resetBoard();
 }
 
-
-function reveal() {
+function revealAll() {
 	// Foreach cell in boardContainer,
+    
+}
+
+function reveal(scoring = true) {
+    item.style.display;
 	
 }
 

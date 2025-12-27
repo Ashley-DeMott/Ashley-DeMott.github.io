@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Yahtzee</title>
+  <meta name="description" content="Yahtzee game">
+  <link rel="stylesheet" href="../miniGames.css" />
+  <link rel="stylesheet" href="yahtzee.css" />
+  <script type="module" src="yahtzee.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <h1>Let's play Yahtzee!</h1>
+    <div id="instructions">
+        <p>Roll dice, freeze, get points picking a section of the scorecard</p>
+    </div>
+</header>
+<main>
+<section id="gameInfo">
+<!-- Total score, current / total rolls -->
+ <div>
+    Score:
+    <div id="totalScore">0</div>
+ </div>
+
+</section>
+
+<section id="board">
+<!-- contains game die. Can lock after a roll. Resets after each rounds -->
+</section>
+
+<section id="scorecard">
+<!-- User can select which section is used for the round (show points to get or only after locking in?) -->
+
+</section>
+
+<section id="controls">
+	<button id="roll">Roll</button>
+	<button id="restart">Restart</button>
+</section>
+</main>
+</body>
+<html>

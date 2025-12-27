@@ -1,0 +1,46 @@
+/* Variables specific to Yahtzee game */
+:root {
+
+    /* Color of scorecard */
+    --cell-color: grey;
+}
+
+.die {
+    width: 50px;
+    height: 50px;
+}
+
+.scorecardCell {
+    width: 150px;
+    height: 50px;
+    
+    background-color: var(--cell-color);
+    padding: 0;
+    margin: 0;
+}
+
+.totalScore {
+    width: 100px;
+    height: 50px;
+}
+
+/* Locked die display differently */
+.disabled {
+    background-color: red;
+}
+
+/* Hide text by using bg color */
+.scorecardCell > .hidden {
+    color: var(--cell-color);
+}
+
+.scorecardCell:hover > .hidden {
+    color: white;
+}
+
+/* Scorecard sections that have been used display differently */
+.scorecardCell:disabled > .cell-score {
+    color: red;
+}
+
+/* TODO [EXTRA]: Display differently depending on game skin (normal Yahtzee die, Webkinz version, etc) */
