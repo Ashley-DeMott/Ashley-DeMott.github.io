@@ -5,9 +5,15 @@
     --cell-color: grey;
 }
 
-.die {
+/* TODO [EXTRA]: Display differently depending on game skin (normal Yahtzee die, Webkinz version, etc) */
+[class^="die"] {
     width: 50px;
     height: 50px;
+}
+
+[class^="card"] {
+    width: 100px;
+    height: 150px;
 }
 
 .scorecardCell {
@@ -43,4 +49,29 @@
     color: red;
 }
 
-/* TODO [EXTRA]: Display differently depending on game skin (normal Yahtzee die, Webkinz version, etc) */
+/* TODO: Display Die differently? */
+/* TODO [EXTRA]: Could highlight die when applicable scorecard cells are hovered? */
+[class$="One"] {
+    /*background-color: orange;*/
+
+}
+[class$="Two"] {
+    /*background-color: yellow;*/
+
+}
+[class$="Three"] {
+    /*background-color: green;*/
+    
+}
+[class$="Four"] {
+    /*background-color: blue;*/
+    
+}
+[class$="Five"] {
+    /*background-color: purple;*/
+    
+}
+[class$="Six"] {
+    /*background-color: pink;*/
+    
+}
